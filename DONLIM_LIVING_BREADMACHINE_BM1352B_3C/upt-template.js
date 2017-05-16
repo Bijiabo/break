@@ -228,6 +228,13 @@ define([], function(){
                         :index="index"\
                         :item-data="item"\
                         ></kd-info-view>\
+                        \
+                        <prompt-cell\
+                        v-if="item.type === \'promptCell\'"\
+                        :data.sync="data"\
+                        :index="index"\
+                        :item-data="item"\
+                        ></prompt-cell>\
     ';
 
     return template;

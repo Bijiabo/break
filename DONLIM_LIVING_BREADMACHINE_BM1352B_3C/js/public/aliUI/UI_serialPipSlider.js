@@ -46,9 +46,9 @@ define(['./../vue', './public'], function(Vue, _public){
                 map: pipsValue
             },
             sliderLabel: component.$get('itemData.title'),
-            element: $('.serial-pip-slider_'+component.$get('index')),
-            min: minIndex,
-            max: pipsValue.length-1,
+            element: '.serial-pip-slider_'+component.$get('index'),
+            min: Number(minIndex),
+            max: Number(pipsValue.length-1),
             pipsValue: pipsValue,
             pipsDesc: pipsDesc,
             changed:function  () {
@@ -73,8 +73,9 @@ define(['./../vue', './public'], function(Vue, _public){
         if (serialMode) {
             _SliderConfig.onSlide = function (x, index, y) {
                 var currentDesc = pipsValue[index] + unit;
-                var handler = $(component.$el).find('.ui-slider-handle');
-                handler.attr('value', currentDesc);
+                var handler = $('.serial-pip-slider_'+component.$get('index')).find('.ui-slider-handle');
+                console.log('xxx:' + currentDesc, handler, component.$el);
+                handler.attr('value', labelForValue(pipsValue[index], unit));
             };
         }
 

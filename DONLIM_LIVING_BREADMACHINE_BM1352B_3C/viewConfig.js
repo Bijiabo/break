@@ -11,11 +11,13 @@ define([
 
     // 头部导航组件
     var navBar = {
-        type: 'navigationBar'
+        type: 'navigationBar',
+        title: 'Donlim面包机',
+        type: 'mixed'
     }
     viewData.push(navBar);
 
-    // 头部大图组件
+    // 头部展示图组件
     var imageView = {
         type: 'productImage',
         url: 'image/xxx.jpg'
@@ -28,7 +30,7 @@ define([
     };
     viewData.push(recommedRecipe);
 
-    // 添加头部工作信息组件
+    // 添加添加云食谱/我的食谱组件
     var infoView = {
         type: 'cookbookCell',
         
@@ -97,15 +99,15 @@ define([
     // 添加模式无糖面包选择控件
     var noSugerBreadMap = [
         {
-            txt:'标准无糖面包',
+            txt:'标准无糖<br />面包',
             value:'11'
         },
         {
-            txt:'松软无糖面包',
+            txt:'松软无糖<br />面包',
             value:'12'
         },
         {
-            txt:'严寒天无糖面包',
+            txt:'严寒天无糖<br />面包',
             value:'13'
         }       
     ];
@@ -269,49 +271,6 @@ define([
         }
     };
     viewData.push(bakeFry);
-
-
-    // 添加模式启动二次确认界面
-    // var startWorkConfirm = {
-    //     type: 'confirmView',
-    //     needDisplay: function(data) {
-    //         return data._start;
-    //     },
-    //     display: {value: false},
-    //     title: '启动xxx模式',
-    //     text: '我是提示内容',
-    //     confirm: {
-    //         text: '现在开始',
-    //         customTapFunction: function (data, context) {
-    //             // var command = 'start_work_' + data._WorkMode;
-    //             // commandManager[command];
-    //             commandManager.start;
-    //             recordManager.start('start_work');
-    //             context.$set('data._start', false);
-    //             window.loadPageCount = 1;
-    //         }
-    //     },
-    //     cancel: {
-    //         text: '取消',
-    //         customTapFunction: function (data, context) {
-    //             commandManager.stop;
-    //             recordManager.stop('stop_work');
-    //             context.$set('data._start', false);
-    //         }
-    //     },
-    //     didCloseModal: function (context) {
-    //         context.$set('data._start', false);
-    //     },
-    //     displayData: function (data) {
-    //         var _displayData = {
-    //             title: helperManager._workModeName,
-    //             text: helperManager._workModeStartTip
-    //         };
-
-    //         return _displayData;
-    //     }
-    // };
-    // viewData.push(startWorkConfirm)
 
     return viewData;
 });

@@ -1,10 +1,10 @@
 @font-face {
-  font-family: 'iconfont';  /* project id 223800 */
-  src: url('//at.alicdn.com/t/font_s5kdqtq1tq1o47vi.eot');
-  src: url('//at.alicdn.com/t/font_s5kdqtq1tq1o47vi.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_s5kdqtq1tq1o47vi.woff') format('woff'),
-  url('//at.alicdn.com/t/font_s5kdqtq1tq1o47vi.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_s5kdqtq1tq1o47vi.svg#iconfont') format('svg');
+  font-family: 'iconfont';  /* project id 303864 */
+  src: url('//at.alicdn.com/t/font_gt0039juj0g22o6r.eot');
+  src: url('//at.alicdn.com/t/font_gt0039juj0g22o6r.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_gt0039juj0g22o6r.woff') format('woff'),
+  url('//at.alicdn.com/t/font_gt0039juj0g22o6r.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_gt0039juj0g22o6r.svg#iconfont') format('svg');
 }
 
 /* 色板 */
@@ -390,4 +390,38 @@ $themeColorSuperLight : #FFF8F9;
     background-size: cover;
     background-position: center;
   }
+}
+
+// detial footer buuton
+.ui-important-light-orange-btn{
+    
+    &:active{
+      background-color: rgba(253, 240, 235, 1);
+      color: rgba(240, 121, 71, 1);
+    } 
+    text-align: center;
+    width: 60px;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    border: none;
+    background-color: rgba(253, 240, 235, 1);
+    color: rgba(240, 121, 71, 1);    
+}
+.ui-important-dark-orange-btn{
+
+    &:active{
+      background-color: rgba(240, 121, 71, 1);
+      color: rgba(255, 255, 255, 1);
+    } 
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    border: none;
+    background-color: rgba(240, 121, 71, 1);
+    color: rgba(255, 255, 255, 1);   
+}
+.startIcon{
+  font-size: 0.9em;
 }

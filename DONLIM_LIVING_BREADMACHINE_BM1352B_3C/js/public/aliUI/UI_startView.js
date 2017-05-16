@@ -12,14 +12,17 @@ define(['./../vue', './public', './UI_timePicker', './UI_confirmView'], function
         template: '<div :class="[show ? \'\' : \'hide\' ]" :e="enable">\
                         <div class="start-view bottom-button-group">\
                             <div v-if="itemData.minorButton"\
-                            class="minor-button ui-important-orange-btn"\
+                            class="minor-button"\
+                            :class="itemData.minorButton.minorButtonClass"\
                             v-tap="tapMinorButton"\
-                            >{{itemData.minorButton.title}}</div>\
+                            v-html=itemData.minorButton.title\
+                            ></div>\
                             <div v-if="itemData.majorButton"\
-                            class="major-button ui-important-green-btn"\
-                            :class="itemData.majorButton.buttonClass"\
+                            class="major-button"\
+                            :class="itemData.majorButton.majorButtonClass"\
                             v-tap="tapMajorButton"\
-                            >{{itemData.majorButton.title}}</div>\
+                            v-html=itemData.majorButton.title\
+                            ></div>\
                         </div>\
                         <div \
                         class="start-view-appointment-view"\
@@ -59,6 +62,8 @@ define(['./../vue', './public', './UI_timePicker', './UI_confirmView'], function
                 displayAppointmentUI: false,
                 timePickerConfig: this.itemData.appointment ? {
                     title: this.itemData.appointment.title || '设置制作时间',
+                    minorButtonClass: this.itemData.appointment.minorButtonClass || 'ui-important-orange-btn',
+                    majorButtonClass: this.itemData.appointment.majorButtonClass || 'ui-important-green-btn',
                     defaultValue: this.itemData.appointment.defaultValue || '10',
                     key: this.itemData.appointment.key || 'TM_Start',
                     type: 'timePicker',

@@ -710,6 +710,16 @@ body {
     color: #666;
 }
 
+.serialMode .serial-pip-slider-item .ui-slider-Desc {
+    display: none;
+}
+
+.serialMode .serial-pip-slider-item .ui-slider-Desc:first-child,
+.serialMode .serial-pip-slider-item .ui-slider-Desc:last-child
+{
+    display: inline-block;
+}
+
 .serialMode .serial-pip-slider-item.ui-slider-item .ui-slider-cont {
     margin-bottom: 14px;
 }
@@ -798,4 +808,20 @@ body {
     height: 0;
 }
 
+/* prompt cell component */
+.prompt-cell .content {
+    background-color: #EEAC8C;
+    padding: 10px;
+    line-height: 22px;
+    color: #fff;
+    text-align: center;
+}
+
+.prompt-cell .content p {
+    margin-bottom: 10px;
+}
+
+.prompt-cell .content p:last-child {
+    margin-bottom: 0;
+}
 
