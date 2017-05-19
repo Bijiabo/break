@@ -8,283 +8,182 @@ define([
     './../record'
 ], function() {
     var viewData = [];
-    
+
     // 导航栏
     var navigationbarView = {
         type: 'navigationBar',
-        title: function (data) {
-            return helperManager.nameForWorkMode(data.WorkMode);
-        },
+        // title: function (data) {
+        //     return helperManager.nameForWorkMode(data.WorkMode);
+        // },
         componentType: 'mixed'
     };
     viewData.push(navigationbarView);
-    
-    // 工作完成提示
-    var workDoneView = {
-        type: 'work-done-view',
-        show: function (data, context) {
-            return workStatusManager.isWorkDone;
-        }
-    };
-    viewData.push(workDoneView);
 
-    // 添加倒计时显示
-    var countDownView = {
-        type: 'KDCountDownView',
-        backgroundImage: function (data) {
-            var defaultImage = 'https://img.alicdn.com/imgextra/i1/176994656/TB2nEdZpHxmpuFjSZJiXXXauVXa_!!176994656.jpg',
-                maskImage = 'https://img.alicdn.com/imgextra/i2/176994656/TB2Eu9qkiC9MuFjSZFoXXbUzFXa_!!176994656.jpg';
-            switch (data.WorkStatus) {
-                case '2': // 热喷
-                    return defaultImage;
-                case '3': // 冷喷
-                    return 'https://img.alicdn.com/imgextra/i4/176994656/TB2wRZFmY0kpuFjy0FjXXcBbVXa_!!176994656.jpg';
-                case '4': // 温喷
-                    return 'https://img.alicdn.com/imgextra/i4/176994656/TB21hp.pNlmpuFjSZPfXXc9iXXa_!!176994656.jpg';
-                case '6': // 敷面膜开始等待
-                    return maskImage;
-                case '7': // 敷面膜中
-                    return maskImage;
-                case '8': // 敷面膜时间到
-                    return maskImage;
-                default:
-                    return defaultImage;
-            }
-        },
+    // 添加工作计时组件
+    var workTimeCountView = {
+        type: 'countDownView',
+        title: 'mode title',
         displayData: function(data) {
-            var _displayData = {
-                mainExplain: '',
-                mainContent: '',
-                mainNumber: 10,
-                keyForMainNumber: 'WorkTime',
-                mainNumberLength: 2,
-                main: 'main',
-                state: '加载中',
-                allTimeNumber: -1,
-                allTime: '',
-                allTimeLength: 2,
-                keyForAllTimeNumber: 'WorkTime',
-                additional: '',
-                currentStep: 2,
-                allStep: 3,
-                working: true,
-                needAutoCountDown: true,
-                pause: data.WorkStatus === '5',
-                hideStep: true,
-                shouldAutoCountDown: function (data) {
-                    return workStatusManager.shouldAutoCountDownTime;
-                }
+
+            var state = '--',
+                mainExplain = '剩余时间',
+                mainNumber = 70,
+                main = '',
+                allTimeNumber = -1,
+                allTime = '',
+                additional = '', //'附加信息...',
+                currentStep = 0,
+                allStep = 0;
+            var mainNumberLength = 2, // 主要数字组合长度 00：00：00
+                allTimeLength = 2;
+            var mainContent = undefined;
+
+            // 工作状态判定
+            switch (data.WorkStatus) {
+                case '0':
+                    state = '待机';
+                    break;
+                case '1':
+                    state = '暂停';
+                    break;
+                case '2':
+                    state = '预约中';
+                    break;
+                case '3':
+                    state = '搅拌1';
+                    break;
+                case '4':
+                    state = '发酵1';
+                    break;
+                case '5':
+                    state = '搅拌2';
+                    break;
+                case '6':
+                    state = '发酵2';
+                    break;
+                case '7':
+                    state = '搅拌3';
+                    break;
+                case '8':
+                    state = '发酵3';
+                    break;
+                case '9':
+                    state = '烘烤';
+                    break;
+                case '10':
+                    state = '保温';
+                    break;
+                case '11':
+                    state = '出炉';
+                    break;
+                default:
+                    state = '加载中';
+                    break;
             };
-
-            // 显示剩余当前步骤时间
-            if (data.WorkMode == '8') { // 手动模式
-                _displayData.mainNumber = Number(data.WorkTime);
-            } else { // 非手动模式
-                _displayData.mainNumber = Number(data.WorkTime_Left);
+            return {
+                mainExplain: mainExplain,
+                mainContent: mainContent,
+                mainNumber: mainNumber,
+                mainNumberLength: mainNumberLength,
+                main: main,
+                state: state,
+                allTimeNumber: allTimeNumber,
+                allTime: allTime,
+                allTimeLength: allTimeLength,
+                additional: additional,
+                currentStep: currentStep,
+                allStep: allStep,
+                working: ['1', '2', '3', '4'].indexOf(data.WorkStatus) >= 0,
+                needAutoCountDown: false,
+                pause: data.WorkStatus === '5'
             }
-
-            // 显示当前工作状态
-            _displayData.state = helperManager.workStatusName;
-
-            // 显示总剩余时间
-            _displayData.allTimeNumber = data.WorkTime ? Number(data.WorkTime) : -1;
-            
-            // 判断工作状态
-            _displayData.working = function (data) {
-                return workStatusManager.isWorking;
-            };
-            
-            // 添加温馨提示
-            if (workStatusManager.isPreparingHeat) {
-                _displayData.additional = '预热完成后，即可开始进行护肤<br>预计护肤总时间 ' + helperManager.formatTimeTo_XX_XX(data.WF_TimeLeft);
-            }
-            
-            // 设定对应 TRD KEY，处理用户交互引起的数据抖动问题
-            if (data.WorkMode == '8') { // 手动模式
-                _displayData.keyForMainNumber = 'WorkTime';
-            } else { // 非手动模式
-                _displayData.keyForMainNumber = 'WorkTime_Left';
-            }
-
-            return _displayData;
-        },
-        renderMainNumber: function (currentMainNumber) {
-            var leftTime = currentMainNumber;
-            var seconds = leftTime % 60;
-            var minutes = Math.floor(leftTime / 60);
-            if (seconds < 10) { seconds = '0' + seconds; }
-            if (minutes < 10) { minutes = '0' + minutes; }
-            return helperManager.fontCodeForNumber(minutes + ':' + seconds);
-        },
-        show: function (data) {
-            return !workStatusManager.isWorkDone;
         }
-    };
-    viewData.push(countDownView);
+    }
+    viewData.push(workTimeCountView);
 
     // 添加步骤显示
     var stepView = {
         type: 'stepView',
         displayData: function(data) {
-            var _displayData = {
-                list: ['加载中'],
-                stepNow: -1,
-                isCloudMenu: false,
-                cloudMenuHasAppointment: false,
-                cloudMenuAdditionalStep: []
+            var list = [],
+                stepNow = 1;
+            var cloudMenuAdditionalStep = [];
+            return {
+                explain: '我是当前步骤的说明文字',
+                list: list,
+                stepNow: stepNow,
+                isCloudMenu: data.WorkMode === '1',
+                cloudMenuHasAppointment: Number(data.TM_Start) > 0,
+                cloudMenuAdditionalStep: cloudMenuAdditionalStep
             };
-            
-            // 更新列表文字数据
-            _displayData.list = helperManager.stepList; 
-            console.warn(_displayData.list);
-    
-            // 更新当前步骤
-            var currentStepIndex = Number(data.WF_CurrentStep);
-            if (_displayData.list[0] == '预热' || _displayData.list[0] == '预热中') {
-                if (data.WorkStatus == '1') { // 预热中
-                    currentStepIndex = 0;
-                } else {
-                    currentStepIndex += 0;
-                }
-            } else {
-                currentStepIndex -= 1;
-            }
-            // 工作完成后，当前步骤要 >= steplist.count
-            if (workStatusManager.isWorkDone) {
-                currentStepIndex = _displayData.list.length;
-            }
-            _displayData.stepNow = currentStepIndex;
-
-            return _displayData;
         }
     };
     viewData.push(stepView);
-    
-    // 底部留白
-    var separatorView = {
-        type: 'separator-view',
-        height: 80
-    };
-    viewData.push(separatorView);
 
-    // 添加取消按钮
-    var stopView = {
+    //添加底部按钮
+    var startButton = {
         type: 'stopView',
-        config: function (data) {
+
+        config: function(data) {
             return {
                 majorButton: {
-                    title: workStatusManager.isWorkDone ? '我知道啦' : '取消',
-                    customTapFunction: function(data, context) {
-                        if (workStatusManager.isWorkDone) {
-                            recordManager.stop('stop_work');
-                            commandManager.stop;
+                    title: function(data) {
+                        if (['5'].indexOf(data.WorkStatus) >= 0) { // 暂停中
+                            return '继续制作';
                         } else {
-                            context.$set('data._stop', true);
+                            return '暂停制作'
                         }
-                        
-                        return false;
+                    },
+
+                    command: function(data) {
+                        if (['5'].indexOf(data.WorkStatus) >= 0) { // 暂停中
+                            return [{
+                                key: 'KG_Start',
+                                value: '1'
+                            }];
+                        } else {
+                            return [{
+                                key: 'KG_Start',
+                                value: '0'
+                            }];
+                        }
+                    },
+
+                    customTapFunction: function(data, component) {
+                        if (data.ErrorCode == '1') {
+                            component.$set('data.needCheckOpenDoor', true);
+                            return false;
+                        }
+                        return true;
+
+                    }
+                },
+                minorButton: {
+                    title: '取消',
+                    minorButtonClass:'xxx',
+                    command: [{
+                        key: 'KG_Start',
+                        value: '0'
+                    }],
+                    confirm: {
+                        title: '取消',
+                        text: '请确认是否取消工作',
+                        confirm: {
+                            text: '继续制作',
+                            data: [{
+                                key: 'KG_Start',
+                                value: '0'
+                            }]
+                        },
+                        cancel: {
+                            text: '结束制作'
+                        }
                     }
                 }
             }
-        }
-    };
-    viewData.push(stopView);
-
-    // 添加面膜模式时间到弹窗提示
-
-    // 添加取消二次确认
-    var stopWorkConfirm = {
-        type: 'confirmView',
-        needDisplay: function(data) {
-            return data._stop;
         },
-        display: {value: false},
-        title: '启动xxx模式',
-        text: '我是提示内容',
-        confirm: {
-            text: '确定',
-            customTapFunction: function (data, context) {
-                // var command = 'start_work_' + data._WorkMode;
-                recordManager.stop('stop_work');
-                context.$set('data._stop', false);
-                commandManager.stop;
-            }
-        },
-        cancel: {
-            text: '取消',
-            customTapFunction: function (data, context) {
-                context.$set('data._stop', false);
-            }
-        },
-        didCloseModal: function (context) {
-            context.$set('data._stop', false);
-        },
-        displayData: function (data) {
-            var _displayData = {
-                title: '取消工作',
-                text: '请确认是否取消工作'
-            };
-            
-            return _displayData;
-        }
-    };
-    viewData.push(stopWorkConfirm);
-    
-    // 添加面膜开始确认
-    var startMaskWorkFlowConfirm = {
-        type: 'confirmView',
-        needDisplay: function(data) {
-            return data.WorkStatus == '6';
-        },
-        display: {value: false},
-        title: '开始敷面膜',
-        text: '热喷过程已经结束，毛孔已经打开，现在是敷面膜的最佳时机哦!<br>请敷好面膜后，点击开始按钮',
-        confirm: {
-            text: '确定',
-            customTapFunction: function (data, context) {
-                commandManager.start;
-            }
-        },
-        cancel: {
-            text: '取消',
-            customTapFunction: function (data, context) {
-                commandManager.stop;
-            }
-        },
-        didCloseModal: function (context) {
-            // context.$set('data._stop', false);
-        },
-        customClass: 'mask_confirm'
-    };
-    viewData.push(startMaskWorkFlowConfirm);
-    
-    // 添加面膜结束确认
-    var stopMaskWorkFlowConfirm = {
-        type: 'confirmView',
-        needDisplay: function(data) {
-            return data.WorkStatus == '8';
-        },
-        display: {value: false},
-        title: '取下面膜',
-        text: '面膜已经达到了最佳吸收效果，现在可以取下面膜，冷喷紧致肌肤啦!<br>取下后请点击继续按钮',
-        confirm: {
-            text: '继续',
-            customTapFunction: function (data, context) {
-                commandManager.start;
-            }
-        },
-        cancel: {
-            text: '取消',
-            customTapFunction: function (data, context) {
-                commandManager.stop;
-            }
-        },
-        didCloseModal: function (context) {
-        },
-        customClass: 'mask_confirm'
-    };
-    viewData.push(stopMaskWorkFlowConfirm);
-
+    }
+    viewData.push(startButton);
 
     return viewData;
 });

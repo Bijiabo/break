@@ -31,8 +31,8 @@ define(['./../vue', './public'], function(Vue, _public){
                 return publicComputed.enable(this);
             },
             content: function() {
-                var controlTime = this.itemData.controlTime;
-                return controlTime(this.data);
+                var contentPackageFunction = this.itemData.contentPackageFunction;
+                return contentPackageFunction(this.data);
             }
         }
     });

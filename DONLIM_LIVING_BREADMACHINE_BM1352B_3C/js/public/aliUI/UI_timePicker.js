@@ -31,9 +31,9 @@ define(['./../vue', './public'], function(Vue, _public){
         // 返回时间单位类型对应展示单位
         switch (unit) {
             case timeUnits.hour:
-                return '时';
+                return '小时';
             case timeUnits.minute:
-                return '分';
+                return '分钟';
             case timeUnits.second:
                 return '秒';
             default:
@@ -70,13 +70,13 @@ define(['./../vue', './public'], function(Vue, _public){
                         key: timeUnits.hour,
                         resource: [],
                         value: '0',
-                        unit: '时'
+                        unit: '小时'
                     },
                     {
                         key: timeUnits.minute,
                         resource: [],
                         value: '0',
-                        unit: '分'
+                        unit: '分钟'
                     },
                     {
                         key: timeUnits.second,
@@ -135,8 +135,8 @@ define(['./../vue', './public'], function(Vue, _public){
                         value: '上午',
                         unit: ''
                     };
-                    this.dateTimeConfigration[1].unit = '时';
-                    this.dateTimeConfigration[2].unit = '分';
+                    this.dateTimeConfigration[1].unit = '小时';
+                    this.dateTimeConfigration[2].unit = '分钟';
                     this.dateTimeConfigration[1].resource = getArrayForTimeUnit(timeUnits.hour, 1, 0, 11);
                     this.dateTimeConfigration[2].resource = getArrayForTimeUnit(timeUnits.minute, 1, 0, 59);
                     // 自动选中当前时间
@@ -160,8 +160,8 @@ define(['./../vue', './public'], function(Vue, _public){
                     var hourIndex = 0,
                         minuteIndex = 1,
                         secondIndex = 2;
-                    this.dateTimeConfigration[hourIndex].unit = '时';
-                    this.dateTimeConfigration[minuteIndex].unit = '分';
+                    this.dateTimeConfigration[hourIndex].unit = '小时';
+                    this.dateTimeConfigration[minuteIndex].unit = '分钟';
                     this.dateTimeConfigration[secondIndex].unit = '秒';
 
                     switch (this.itemData.unit) {

@@ -86,12 +86,12 @@ define([
         map: normalBreadMap,
         linkToPage: './setting/app.html',
         
-        customTapFunction: function (index, item, data, context) {
-            //do sth
-            return true;
-        },
+        // customTapFunction: function (index, item, data, context) {
+        //     //do sth
+        //     return true;
+        // },
         enable: function (data) {
-            return workStatusManager.canStartWork;
+            return true;
         }
     };
     viewData.push(normalBread);
@@ -121,12 +121,12 @@ define([
         map: noSugerBreadMap,
         linkToPage: './setting/app.html',
         
-        customTapFunction: function (index, item, data, context) {
-            //do sth
-            return true;
-        },
+        // customTapFunction: function (index, item, data, context) {
+        //     //do sth
+        //     return true;
+        // },
         enable: function (data) {
-            return workStatusManager.canStartWork;
+            return true;
         }
     };
     viewData.push(noSugerBread);
@@ -168,12 +168,12 @@ define([
         map: fermentationChangeMap,
         linkToPage: './setting/app.html',
         
-        customTapFunction: function (index, item, data, context) {
-            //do sth
-            return true;
-        },
+        // customTapFunction: function (index, item, data, context) {
+        //     //do sth
+        //     return true;
+        // },
         enable: function (data) {
-            return workStatusManager.canStartWork;
+            return true;
         }
     };
     viewData.push(fermentationChange);
@@ -207,12 +207,12 @@ define([
         map: kneadMixingMap,
         linkToPage: './setting/app.html',
         
-        customTapFunction: function (index, item, data, context) {
-            //do sth
-            return true;
-        },
+        // customTapFunction: function (index, item, data, context) {
+        //     //do sth
+        //     return true;
+        // },
         enable: function (data) {
-            return workStatusManager.canStartWork;
+            return true;
         }
     };
     viewData.push(kneadMixing);
@@ -262,12 +262,12 @@ define([
         map: bakeFryMap,
         linkToPage: './setting/app.html',
         
-        customTapFunction: function (index, item, data, context) {
-            //do sth
-            return true;
-        },
+        // customTapFunction: function (index, item, data, context) {
+        //     //do sth
+        //     return true;
+        // },
         enable: function (data) {
-            return workStatusManager.canStartWork;
+            return true;
         }
     };
     viewData.push(bakeFry);

@@ -2,8 +2,8 @@
 @font-face {
   font-family: 'iconfont';
   /* project id 303864 */
-  src: url("//at.alicdn.com/t/font_gt0039juj0g22o6r.eot");
-  src: url("//at.alicdn.com/t/font_gt0039juj0g22o6r.eot?#iefix") format("embedded-opentype"), url("//at.alicdn.com/t/font_gt0039juj0g22o6r.woff") format("woff"), url("//at.alicdn.com/t/font_gt0039juj0g22o6r.ttf") format("truetype"), url("//at.alicdn.com/t/font_gt0039juj0g22o6r.svg#iconfont") format("svg");
+  src: url("//at.alicdn.com/t/font_ws459isgd6y1fw29.eot");
+  src: url("//at.alicdn.com/t/font_ws459isgd6y1fw29.eot?#iefix") format("embedded-opentype"), url("//at.alicdn.com/t/font_ws459isgd6y1fw29.woff") format("woff"), url("//at.alicdn.com/t/font_ws459isgd6y1fw29.ttf") format("truetype"), url("//at.alicdn.com/t/font_ws459isgd6y1fw29.svg#iconfont") format("svg");
 }
 /* 色板 */
 /* kd info view */
@@ -171,13 +171,13 @@
 /* custom grid component style */
 /* line 177, custom.scss */
 #view .ui-grid ul li.ui-grid-on .iconfont, #view .ui-grid ul li.ui-grid-on div {
-  color: #FF879E !important;
+  color: #00c7b2 !important;
 }
 
 /* line 181, custom.scss */
 #view .ui-grid ul li.mask {
-  background-color: rgba(255, 135, 158, 0.2);
-  box-shadow: inset 0 0 0 1px #FF879E;
+  background-color: rgba(235, 251, 249, 0.2);
+  box-shadow: inset 0 0 0 1px #00c7b2;
 }
 
 /* custom KD Slider component style */
@@ -376,42 +376,4 @@
   background-image: url("https://img.alicdn.com/imgextra/i2/176994656/TB2Eu9qkiC9MuFjSZFoXXbUzFXa_!!176994656.jpg");
   background-size: cover;
   background-position: center;
-}
-
-/* line 396, custom.scss */
-.ui-important-light-orange-btn {
-  text-align: center;
-  width: 60px;
-  height: 40px;
-  line-height: 40px;
-  color: #fff;
-  border: none;
-  background-color: #fdf0eb;
-  color: #f07947;
-}
-/* line 398, custom.scss */
-.ui-important-light-orange-btn:active {
-  background-color: #fdf0eb;
-  color: #f07947;
-}
-
-/* line 411, custom.scss */
-.ui-important-dark-orange-btn {
-  text-align: center;
-  height: 40px;
-  line-height: 40px;
-  color: #fff;
-  border: none;
-  background-color: #f07947;
-  color: white;
-}
-/* line 413, custom.scss */
-.ui-important-dark-orange-btn:active {
-  background-color: #f07947;
-  color: white;
-}
-
-/* line 425, custom.scss */
-.startIcon {
-  font-size: 0.9em;
 }

@@ -21,7 +21,7 @@ define(['./../vue', './public'], function(Vue, _public){
                         class="count-down-view"\
                         :class="{\'working\': working, \'pause\':pause}">\
                             <div class="circle-view">\
-                                <div class="content-main-explain">{{{mainExplain}}}</div>\
+                                <div class="content-main-explain"><i class="iconfont">&#xe602;</i>{{{mainExplain}}}</div>\
                                 <div class="content-main">{{{main}}}</div>\
                                 <div class="content-state">{{state}}</div>\
                                 <div class="content-alltime">{{allTime}}</div>\
@@ -63,7 +63,7 @@ define(['./../vue', './public'], function(Vue, _public){
                 } else {
                     this.mainNumber = displayData.mainNumber;
                     this.mainNumberLength = displayData.mainNumberLength;
-                    this.main = displayData.mainNumber < 0 ? '--:--' : this.timeToArray(displayData.mainNumber,this.mainNumberLength).join(':');
+                    this.main = displayData.mainNumber < 0 ? '--:--' : this.timeToArrayWord(displayData.mainNumber,this.mainNumberLength).join('');
                 }
 
                 this.state = displayData.state;
@@ -109,7 +109,7 @@ define(['./../vue', './public'], function(Vue, _public){
                     clearCountDOwnInterval();
                 }
             },
-            timeToArray: function(time, arrayLength) {
+            timeToArraySymbol: function(time, arrayLength) {
                 var timeArray = [];
                 var _time = Number(time);
                 var numberToString = function(n) {
@@ -127,6 +127,34 @@ define(['./../vue', './public'], function(Vue, _public){
                 }
 
                 timeArray.push(numberToString(_time));
+
+                if (arrayLength) {
+                    if (timeArray.length < arrayLength) {
+                        var additionalArray = [];
+                        for (var i=0,len=arrayLength-timeArray.length; i<len; i++) {
+                            additionalArray.push('00');
+                        }
+                        timeArray = additionalArray.concat(timeArray);
+                    }
+                }
+
+                return timeArray;
+            },
+
+            timeToArrayWord : function(time, arrayLength) {
+                var timeArray = [];
+                var _time = Number(time);
+                var numberToString = function(n) {
+                    if (n<10) {return '0'+n.toString();}
+                    return n.toString();
+                };
+
+                if (time > 60) {
+                    timeArray.push(numberToString(Math.floor(_time/60)) + '小时');
+                    _time = time % 60;
+                }
+
+                timeArray.push(numberToString(_time) + '分钟');
 
                 if (arrayLength) {
                     if (timeArray.length < arrayLength) {

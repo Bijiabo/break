@@ -1,7 +1,7 @@
 /**
  * Created by huchunbo on 16/6/4.
  */
-requirejs(['./../upt.js', './viewConfig'], function(upt, viewConfig) {
+requirejs(['./../upt.js', './viewConfig', './../debug'], function(upt, viewConfig, debug) {
     var config = {
         platform: 'aliSmart',
         debugView: false,
@@ -27,6 +27,9 @@ requirejs(['./../upt.js', './viewConfig'], function(upt, viewConfig) {
         ],
         bodyBackgroundColor: '#ffffff'
     };
+
+    // data.loading = false;
+    debug.init();
 
     upt.init(config);
 });

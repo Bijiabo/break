@@ -325,8 +325,11 @@ body {
 }
 
 .count-down-view .circle-view .content-main {
-    font-size: 3em;
-    padding-left: 20px;
+    // font-size: 3em;
+    font-size: 2em;
+    margin: 10px 0;
+    font-family: 'Microsoft YaHei'
+    // padding-left: 20px;
 }
 
 .count-down-view .circle-view .content-main .iconfont {
@@ -357,7 +360,11 @@ body {
 }
 
 .count-down-view .content-main-explain {
-    margin-top: 1em;
+    font-size: 1.3em;
+}
+.count-down-view .content-main-explain .iconfont{
+    font-size: 1.3em;
+    margin-top: 5px;
 }
 
 .count-down-view .content-state {
@@ -825,3 +832,80 @@ body {
     margin-bottom: 0;
 }
 
+/* startView button */
+.ui-important-light-orange-btn{
+    
+    &:active{
+      background-color: rgba(253, 240, 235, 1);
+      color: rgba(240, 121, 71, 1);
+    } 
+    text-align: center;
+    width: 60px;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    border: none;
+    background-color: rgba(253, 240, 235, 1);
+    color: rgba(240, 121, 71, 1);    
+}
+.ui-important-dark-orange-btn{
+
+    &:active{
+      background-color: rgba(240, 121, 71, 1);
+      color: rgba(255, 255, 255, 1);
+    } 
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    border: none;
+    background-color: rgba(240, 121, 71, 1);
+    color: rgba(255, 255, 255, 1);   
+}
+.startIcon{
+  font-size: 0.9em;
+}
+
+/* stopView button */
+.ui-important-light-green-btn{
+    
+    &:active{
+      background-color: rgba(234, 255, 253, 1);
+      color: rgba(0, 199, 178, 1);
+    } 
+    text-align: center;
+    width: 60px;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    border: none;
+    background-color: rgba(234, 255, 253, 1);
+    color: rgba(0, 199, 178, 1);    
+}
+.ui-important-dark-green-btn{
+
+    &:active{
+      background-color: rgba(0, 199, 178, 1);
+      color: rgba(255, 255, 255, 1);
+    } 
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    border: none;
+    background-color: rgba(0, 199, 178, 1);
+    color: rgba(255, 255, 255, 1);   
+}
+
+/* timePicker component */
+.expect-time{
+    text-align: center;
+    height: 40px;
+    line-height: 60px;
+    font-size: 1.1em;
+}
+.expect-time p{
+    display: inline;
+    color: rgb(255, 134, 80);
+    padding: 0 3px;
+}

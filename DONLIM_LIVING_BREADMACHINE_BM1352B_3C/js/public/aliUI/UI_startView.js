@@ -12,14 +12,12 @@ define(['./../vue', './public', './UI_timePicker', './UI_confirmView'], function
         template: '<div :class="[show ? \'\' : \'hide\' ]" :e="enable">\
                         <div class="start-view bottom-button-group">\
                             <div v-if="itemData.minorButton"\
-                            class="minor-button"\
-                            :class="itemData.minorButton.minorButtonClass"\
+                            class="minor-button ui-important-light-orange-btn"\
                             v-tap="tapMinorButton"\
                             v-html=itemData.minorButton.title\
                             ></div>\
                             <div v-if="itemData.majorButton"\
-                            class="major-button"\
-                            :class="itemData.majorButton.majorButtonClass"\
+                            class="major-button ui-important-orange-btn"\
                             v-tap="tapMajorButton"\
                             v-html=itemData.majorButton.title\
                             ></div>\
@@ -40,11 +38,11 @@ define(['./../vue', './public', './UI_timePicker', './UI_confirmView'], function
                                 \
                                 <div class="bottom-button-group">\
                                     <div \
-                                    class="minor-button ui-important-orange-btn"\
+                                    class="minor-button ui-important-light-orange-btn"\
                                     v-tap="tapSetAppointCancelButton"\
                                     >取消</div>\
                                     <div \
-                                    class="major-button ui-important-green-btn"\
+                                    class="major-button ui-important-orange-btn"\
                                     v-tap="tapSetAppointMentButton"\
                                     >确定</div>\
                                 </div>\
@@ -62,8 +60,9 @@ define(['./../vue', './public', './UI_timePicker', './UI_confirmView'], function
                 displayAppointmentUI: false,
                 timePickerConfig: this.itemData.appointment ? {
                     title: this.itemData.appointment.title || '设置制作时间',
-                    minorButtonClass: this.itemData.appointment.minorButtonClass || 'ui-important-orange-btn',
-                    majorButtonClass: this.itemData.appointment.majorButtonClass || 'ui-important-green-btn',
+                    // minorButtonClass: this.itemData.appointment.minorButtonClass || 'ui-important-orange-btn',
+                    // majorButtonClass: this.itemData.appointment.majorButtonClass || 'ui-important-green-btn',
+                    // expectTime: this.itemData.appointment.expectTime,
                     defaultValue: this.itemData.appointment.defaultValue || '10',
                     key: this.itemData.appointment.key || 'TM_Start',
                     type: 'timePicker',

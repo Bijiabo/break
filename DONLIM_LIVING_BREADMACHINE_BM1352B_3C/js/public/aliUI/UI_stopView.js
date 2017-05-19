@@ -12,12 +12,12 @@ define(['./../vue', './public', './UI_timePicker', './UI_confirmView'], function
         template: '<div :class="[show ? \'\' : \'hide\' ]" :e="enable">\
                         <div class="start-view bottom-button-group">\
                             <div v-if="minorButton"\
-                            class="minor-button ui-important-orange-btn"\
+                            class="minor-button ui-important-light-green-btn"\
                             v-tap="tapMinorButton"\
                             >{{minorButton.title}}</div>\
                             \
                             <div v-if="majorButton"\
-                            class="major-button ui-important-green-btn"\
+                            class="major-button ui-important-dark-green-btn"\
                             v-tap="tapMajorButton"\
                             >{{majorButtonText}}</div>\
                         </div>\
@@ -33,12 +33,13 @@ define(['./../vue', './public', './UI_timePicker', './UI_confirmView'], function
                 majorButtonText: '取消',
                 majorButton: {
                     title: '暂停',
-                    command: []
+                    command: [],
                 },
                 minorButton: {
                     title: '取消',
-                    command: []
+                    command: [],
                 },
+
                 confirm: {
                     title: '取消工作',
                     text: '请确认是否取消工作',
