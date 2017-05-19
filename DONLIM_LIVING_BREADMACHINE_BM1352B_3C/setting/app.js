@@ -14,7 +14,7 @@ requirejs(['./../upt.js', './viewConfig', './../debug'], function(upt, viewConfi
         direction: [
             {
                 type: 'load',
-                url: '/work/app.html',
+                url: './../work/app.html',
                 condition: function(data) {
                     if ( Number(data.WorkStatus) > 0) {
                         return true;

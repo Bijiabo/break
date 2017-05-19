@@ -54,9 +54,9 @@ define(['./../vue', './public', 'cookbook'+(window.____isTestEnv ? '_test':'')],
                                 <template v-for="(_index, item) in list" track-by="$index">\
                                     <div class="step-list-item" :class="{\'active\': _index==stepNow, \'done\': _index < stepNow}">\
                                         <div class="step-list-item-icon">\
-                                            <i class="iconfont" v-if="_index < stepNow">&#xe604;</i>\
-                                            <i class="iconfont" v-if="_index===stepNow">&#xe641;</i>\
-                                            <i class="iconfont" v-if="_index > stepNow">&#xe623;</i>\
+                                            <i class="iconfont" v-if="_index < stepNow">&#xe629;</i>\
+                                            <i class="iconfont" v-if="_index===stepNow">&#xe62b;</i>\
+                                            <i class="iconfont" v-if="_index > stepNow">&#xe7f6;</i>\
                                         </div>\
                                         <span>{{item}}</span>\
                                         <span \

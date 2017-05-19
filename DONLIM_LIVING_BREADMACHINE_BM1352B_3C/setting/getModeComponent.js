@@ -1,7 +1,7 @@
 /*
 	各种模式的所有组件，不包括公用组件
 */
-define(['./getModeKey'], function(keys) {
+define(['./getModeKey','./../helper'], function(keys) {
 	var generateComponent = {
 		// 添加头部展示图组件
 		imageSetter: function() {
@@ -16,19 +16,7 @@ define(['./getModeKey'], function(keys) {
 				type: 'promptCell',
 				content: '温馨提示：制作时间需',
 				contentPackageFunction: function(data) {
-					var formatTime = data.WorkTime;
-					var hourTime = Math.floor(formatTime/60);
-					var minuteTime = formatTime%60; // todo: xxx
-					if(formatTime >= 60){
-						if(minuteTime == 0){
-							return '温馨提示：制作时间需' + hourTime + '小时'						
-						}	
-						return '温馨提示：制作时间需' + hourTime + '小时' + minuteTime + '分钟';
-					}else{
-						return '温馨提示：制作时间需' + minuteTime + '分钟';
-					}
-					
-					
+					return helperManager.syncTime(data)		
 				}
 			};
 		},

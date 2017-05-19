@@ -44,15 +44,14 @@ define([
             majorButton: {
                 title: '<i class="iconfont startIcon">&#xe605;</i>&nbsp;开启',
                 majorButtonClass: 'ui-important-orange-btn',
-                working: function(data) {
-                    if (data.WorkStatus && data.WorkStatus.value == 0) {
-                        return false;
-                    }
-                    return true
-                },
                 keys: ['KG_Start'],
                 customTapFunction: function(data) {
                     //do sth
+                    var preSet = {
+                        'KG_Start': {value: '1'},
+                        'WorkMode': {value: DA.query.WorkMode}
+                    };
+                    DA.setDeviceStatus(DA.uuid, preSet);
                 }
             },
         };
@@ -67,7 +66,6 @@ define([
             };
             startButton.appointment = {
                 title: '预约完成时间',
-                expectTime: '40小时50分钟后',
                 keys: ['TM_Finish'],
                 system12: false,
                 system24: false,

@@ -2,11 +2,12 @@
  * Created by huchunbo on 2017/2/16.
  */
 define([
+    './workStatus',
     './../command',
     './../workStatus',
     './../helper',
     './../record'
-], function() {
+], function(statusList) {
     var viewData = [];
 
     // 导航栏
@@ -80,6 +81,30 @@ define([
                     state = '加载中';
                     break;
             };
+
+            //工作模式判定
+            switch (data.WorkMode) {
+                case '1':
+                    // 云食谱
+                    break;
+                default:
+            }
+
+            if (data.WorkMode !== '1') { //非云食谱
+                if (workStatusManager.isMultistep) { //多步骤工作模式
+                    if (workStatusManager.isAppoinment) { //有预约
+                        alstep = 10;
+                    } else {
+                        allStep = 9;
+                    }
+                } else {
+                    if (workStatusManager.isCustom) { //自定义模式
+                        allStep = 9;
+                    } else { //单步骤模式
+                        allstep = 1;
+                    }
+                }
+            }
             return {
                 mainExplain: mainExplain,
                 mainContent: mainContent,
@@ -106,10 +131,27 @@ define([
         type: 'stepView',
         displayData: function(data) {
             var list = [],
-                stepNow = 1;
+                stepNow = 0;
             var cloudMenuAdditionalStep = [];
+            var defaultArray = statusList.commonStatusList; // 定义的默认数组
+
+            if (workStatusManager.isMultistep) {
+                if (workStatusManager.isAppoinment) {
+                    list = defaultArray;
+                } else {
+                    list = defaultArray.slice(1);
+                }
+            } else {
+                if (workStatusManager.isCustom) { //自定义模式
+                    list = defaultArray.slice(1);
+                } else { //单步骤模式
+                    list = ['制作中']
+                }
+            }
+
+
             return {
-                explain: '我是当前步骤的说明文字',
+                explain: '',
                 list: list,
                 stepNow: stepNow,
                 isCloudMenu: data.WorkMode === '1',
@@ -119,6 +161,13 @@ define([
         }
     };
     viewData.push(stepView);
+
+    // 添加底部留白高度
+    var footerHeight = {
+        type: 'separator-view',
+        height: 50,
+    }
+    viewData.push(footerHeight);
 
     //添加底部按钮
     var startButton = {
@@ -160,7 +209,7 @@ define([
                 },
                 minorButton: {
                     title: '取消',
-                    minorButtonClass:'xxx',
+                    minorButtonClass: 'xxx',
                     command: [{
                         key: 'KG_Start',
                         value: '0'

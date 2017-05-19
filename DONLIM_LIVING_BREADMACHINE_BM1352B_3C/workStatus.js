@@ -3,23 +3,23 @@
  */
 define(['./js/manager/workStatusManager'], function (workStatus) {
     workStatus.add(
-        'isWorking',
+        'isAppoinment',
         function (data) {
-            return true
+            return data.Reserve === '1'
         }
     );
     
     workStatus.add(
-        'isWorkDone',
+        'isMultistep',
         function (data) {
-            return true
+            return ['1','2','3','4','5','6','7','8','9','10','11','12','13'].indexOf(data.workMode) >= 0;
         }
     );
 
     workStatus.add(
-        'isStandby',
+        'isCustom',
         function (data) {
-            return true
+            return data.workMode === '31'
         }
     );
     

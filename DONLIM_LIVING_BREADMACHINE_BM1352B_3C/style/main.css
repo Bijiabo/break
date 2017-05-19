@@ -528,17 +528,27 @@ body {
   font-size: 17px;
 }
 
-/* line 459, main.scss */
+/* line 458, main.scss */
+.step-list-item span {
+  color: #A0A0A0;
+}
+
+/* line 461, main.scss */
+.done span, .active span {
+  color: #000;
+}
+
+/* line 465, main.scss */
 .step-list-item.active .step-list-item-icon .iconfont, .step-list-item.done .step-list-item-icon .iconfont {
   color: #f07947;
 }
 
-/* line 463, main.scss */
+/* line 469, main.scss */
 .step-list-item.active {
   color: RGBA(240, 121, 71, 1);
 }
 
-/* line 467, main.scss */
+/* line 473, main.scss */
 .step-list-item-info {
   position: relative;
   top: 1px;
@@ -547,7 +557,7 @@ body {
   color: #A0A0A0;
 }
 
-/* line 476, main.scss */
+/* line 482, main.scss */
 .step-list-item-info.active:before {
   content: attr(content);
   position: absolute;
@@ -563,7 +573,7 @@ body {
   font-size: 12px;
 }
 
-/* line 492, main.scss */
+/* line 498, main.scss */
 .step-list-item-info.active:after {
   content: "";
   position: absolute;
@@ -579,7 +589,7 @@ body {
 }
 
 /* explain-view */
-/* line 511, main.scss */
+/* line 517, main.scss */
 .explain-view .title {
   background-color: #f7f7f7;
   padding: 10px;
@@ -588,7 +598,7 @@ body {
   line-height: 14px;
 }
 
-/* line 519, main.scss */
+/* line 525, main.scss */
 .explain-view .content {
   background: #ffffff;
   padding: 10px;
@@ -596,18 +606,18 @@ body {
   color: #757575;
 }
 
-/* line 526, main.scss */
+/* line 532, main.scss */
 .explain-view .content p {
   margin-bottom: 10px;
 }
 
-/* line 530, main.scss */
+/* line 536, main.scss */
 .explain-view .content p:last-child {
   margin-bottom: 0;
 }
 
 /* time-picker */
-/* line 535, main.scss */
+/* line 541, main.scss */
 .time-picker-component-container .title {
   background-color: #f7f7f7;
   padding: 10px;
@@ -616,7 +626,7 @@ body {
 }
 
 /* state-mask-view */
-/* line 543, main.scss */
+/* line 549, main.scss */
 .state-mask {
   background: #fff;
   padding: 40px 0;
@@ -624,7 +634,7 @@ body {
   box-sizing: border-box;
 }
 
-/* line 550, main.scss */
+/* line 556, main.scss */
 .state-mask .lock {
   margin: 0 auto;
   background-size: 100% 100% !important;
@@ -637,7 +647,7 @@ body {
 }
 
 /* work done */
-/* line 563, main.scss */
+/* line 569, main.scss */
 .work-done {
   background-repeat: no-repeat;
   background-position: top;
@@ -646,7 +656,7 @@ body {
   background-image: url("https://img.alicdn.com/imgextra/i3/176994656/TB2s9xbnmFjpuFjSspbXXXagVXa_!!176994656.jpg");
 }
 
-/* line 575, main.scss */
+/* line 581, main.scss */
 .work-done-keep-warm {
   width: 100%;
   height: 400px;
@@ -657,7 +667,7 @@ body {
   background-image: url("https://img.alicdn.com/imgextra/i4/151197236/TB26H0hdr0kpuFjy0FjXXcBbVXa_!!151197236.png");
 }
 
-/* line 584, main.scss */
+/* line 590, main.scss */
 .work-done-disinfection {
   width: 100%;
   height: 400px;
@@ -669,7 +679,7 @@ body {
 }
 
 /* navigation-bar */
-/* line 595, main.scss */
+/* line 601, main.scss */
 .navigation-bar {
   position: fixed;
   top: 48px;
@@ -684,35 +694,35 @@ body {
   color: rgba(255, 255, 255, 0.7);
 }
 
-/* line 612, main.scss */
+/* line 618, main.scss */
 .navigation-bar > div {
   /*height: 40px;*/
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-/* line 617, main.scss */
+/* line 623, main.scss */
 .navigation-bar .left {
   flex-basis: 50px;
 }
 
-/* line 621, main.scss */
+/* line 627, main.scss */
 .navigation-bar .right {
   flex-basis: 50px;
 }
 
-/* line 625, main.scss */
+/* line 631, main.scss */
 .navigation-bar .title {
   /*flex-grow: 1;*/
   text-align: center;
 }
 
 /* switch cell */
-/* line 631, main.scss */
+/* line 637, main.scss */
 .switch_cell_container {
   position: relative;
 }
 
-/* line 635, main.scss */
+/* line 641, main.scss */
 .swtich_cell_interact_area {
   position: absolute;
   right: 0;
@@ -724,7 +734,7 @@ body {
 }
 
 /* grid */
-/* line 646, main.scss */
+/* line 652, main.scss */
 .ui-item-label {
   background: #f7f7f7;
   padding: 10px;
@@ -733,7 +743,7 @@ body {
   line-height: 14px;
 }
 
-/* line 654, main.scss */
+/* line 660, main.scss */
 .ui-grid .ui-item-label span {
   position: relative;
   top: -2px;
@@ -741,7 +751,7 @@ body {
 }
 
 /* tab */
-/* line 661, main.scss */
+/* line 667, main.scss */
 .ui-tabs-title {
   height: 33px;
   margin: 8px;
@@ -756,13 +766,13 @@ body {
   vertical-align: middle;
 }
 
-/* line 676, main.scss */
+/* line 682, main.scss */
 .ui-tabs-title .ui-tab-title:first-child {
   border-left-width: 1px;
   border-radius: 5px 0 0 5px;
 }
 
-/* line 681, main.scss */
+/* line 687, main.scss */
 .ui-tabs-title .ui-tab-title {
   text-decoration: none;
   -moz-box-flex: 1;
@@ -779,14 +789,14 @@ body {
   -webkit-transition: background .2s;
 }
 
-/* line 697, main.scss */
+/* line 703, main.scss */
 .ui-tabs-title .ui-tab-title.active {
   color: #fff;
   background: #00c7b2;
 }
 
 /* custom serial pip slider*/
-/* line 703, main.scss */
+/* line 709, main.scss */
 .serialMode .serial-pip-slider-item .ui-slider-handle:before {
   content: attr(value);
   position: absolute;
@@ -801,38 +811,38 @@ body {
   text-align: center;
 }
 
-/* line 716, main.scss */
+/* line 722, main.scss */
 .serialMode .serial-pip-slider-item .ui-slider-Desc.currentXLabel {
   color: #666;
 }
 
-/* line 720, main.scss */
+/* line 726, main.scss */
 .serialMode .serial-pip-slider-item .ui-slider-Desc {
   display: none;
 }
 
-/* line 724, main.scss */
+/* line 730, main.scss */
 .serialMode .serial-pip-slider-item .ui-slider-Desc:first-child,
 .serialMode .serial-pip-slider-item .ui-slider-Desc:last-child {
   display: inline-block;
 }
 
-/* line 730, main.scss */
+/* line 736, main.scss */
 .serialMode .serial-pip-slider-item.ui-slider-item .ui-slider-cont {
   margin-bottom: 14px;
 }
 
-/* line 733, main.scss */
+/* line 739, main.scss */
 .no-slider-label .ui-slider-label {
   display: none;
 }
 
-/* line 736, main.scss */
+/* line 742, main.scss */
 .no-slider-label .ui-slider-item {
   padding-top: 32px;
 }
 
-/* line 739, main.scss */
+/* line 745, main.scss */
 .panel-title-cell {
   background-color: #f7f7f7;
   padding: 10px;
@@ -841,26 +851,26 @@ body {
 }
 
 /* custom start-view */
-/* line 747, main.scss */
+/* line 753, main.scss */
 .start-view-main-button {
   border-color: #FF5681;
   background-color: #FF5681;
 }
 
 /* custom tab component */
-/* line 753, main.scss */
+/* line 759, main.scss */
 .ui-tabs-title .ui-tab-title {
   border: 1px solid #FF5681;
   color: #FF5681;
 }
 
-/* line 758, main.scss */
+/* line 764, main.scss */
 .ui-tabs-title .ui-tab-title.active {
   background: #FF5681;
 }
 
 /* loading view */
-/* line 763, main.scss */
+/* line 769, main.scss */
 .loading-view {
   box-sizing: border-box;
   position: fixed;
@@ -876,7 +886,7 @@ body {
   z-index: 999;
 }
 
-/* line 777, main.scss */
+/* line 783, main.scss */
 .loading-view:before {
   content: "";
   position: fixed;
@@ -888,7 +898,7 @@ body {
   background-color: white;
 }
 
-/* line 787, main.scss */
+/* line 793, main.scss */
 .loading-view .loading-icon {
   position: absolute;
   left: 0;
@@ -901,13 +911,13 @@ body {
   overflow: hidden;
 }
 
-/* line 798, main.scss */
+/* line 804, main.scss */
 .loading-view .loading-icon .iconfont {
   font-size: 80px;
   line-height: 120px;
 }
 
-/* line 802, main.scss */
+/* line 808, main.scss */
 .loading-view .loading-text {
   position: absolute;
   top: 140px;
@@ -919,13 +929,13 @@ body {
 }
 
 /* fix cell separator line  */
-/* line 814, main.scss */
+/* line 820, main.scss */
 .ui-item-list ul:after, .ui-item-list ul:before {
   height: 0;
 }
 
 /* prompt cell component */
-/* line 819, main.scss */
+/* line 825, main.scss */
 .prompt-cell .content {
   background-color: #EEAC8C;
   padding: 10px;
@@ -934,18 +944,18 @@ body {
   text-align: center;
 }
 
-/* line 827, main.scss */
+/* line 833, main.scss */
 .prompt-cell .content p {
   margin-bottom: 10px;
 }
 
-/* line 831, main.scss */
+/* line 837, main.scss */
 .prompt-cell .content p:last-child {
   margin-bottom: 0;
 }
 
 /* startView button */
-/* line 836, main.scss */
+/* line 842, main.scss */
 .ui-important-light-orange-btn {
   text-align: center;
   width: 60px;
@@ -956,13 +966,13 @@ body {
   background-color: #fdf0eb;
   color: #f07947;
 }
-/* line 838, main.scss */
+/* line 844, main.scss */
 .ui-important-light-orange-btn:active {
   background-color: #fdf0eb;
   color: #f07947;
 }
 
-/* line 851, main.scss */
+/* line 857, main.scss */
 .ui-important-dark-orange-btn {
   text-align: center;
   height: 40px;
@@ -972,19 +982,19 @@ body {
   background-color: #f07947;
   color: white;
 }
-/* line 853, main.scss */
+/* line 859, main.scss */
 .ui-important-dark-orange-btn:active {
   background-color: #f07947;
   color: white;
 }
 
-/* line 865, main.scss */
+/* line 871, main.scss */
 .startIcon {
   font-size: 0.9em;
 }
 
 /* stopView button */
-/* line 870, main.scss */
+/* line 876, main.scss */
 .ui-important-light-green-btn {
   text-align: center;
   width: 60px;
@@ -995,13 +1005,13 @@ body {
   background-color: #eafffd;
   color: #00c7b2;
 }
-/* line 872, main.scss */
+/* line 878, main.scss */
 .ui-important-light-green-btn:active {
   background-color: #eafffd;
   color: #00c7b2;
 }
 
-/* line 885, main.scss */
+/* line 891, main.scss */
 .ui-important-dark-green-btn {
   text-align: center;
   height: 40px;
@@ -1011,14 +1021,14 @@ body {
   background-color: #00c7b2;
   color: white;
 }
-/* line 887, main.scss */
+/* line 893, main.scss */
 .ui-important-dark-green-btn:active {
   background-color: #00c7b2;
   color: white;
 }
 
 /* timePicker component */
-/* line 901, main.scss */
+/* line 907, main.scss */
 .expect-time {
   text-align: center;
   height: 40px;
@@ -1026,7 +1036,7 @@ body {
   font-size: 1.1em;
 }
 
-/* line 907, main.scss */
+/* line 913, main.scss */
 .expect-time p {
   display: inline;
   color: #ff8650;

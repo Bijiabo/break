@@ -3,13 +3,26 @@ define(['_sdk_alink'], function(__sdk){
 	return {
 		init: function (){
 			DA.loadPage = function(targetPath, obj) {
-				console.log('obj-->' + obj)
+				console.log('obj-->' + obj);
+
+				// if (!/^\./.test(targetPath)) {
+				// 	targetPath = '.' + targetPath;
+				// }
+
+				var targetGetParams = '';
 				for(var key in obj){
 					var currentValue = obj[key];
 					console.log(key, currentValue);
-					location.href = targetPath + '?' + key + '=' + currentValue;
+					if (targetGetParams.length === 0) {
+						targetGetParams = key + '=' + currentValue;
+					} else {
+						targetGetParams = targetGetParams + '&' + key + '=' + currentValue;
+					}
 				}
-				
+				if (targetGetParams.length > 0) {
+					targetGetParams = '?' + targetGetParams;
+				}
+				location.href = targetPath + targetGetParams;
 			}
 
 			window.__data = {
@@ -23,15 +36,15 @@ define(['_sdk_alink'], function(__sdk){
 				Reserve : {value : '1'},
 				// StepWorkMode : {value : '0'},
 				StopStatus : {value : '0'},
-				TM_Finish : {value : '1000'},
+				TM_Finish : {value : '10'},
 				WarmTM : {value : '0'},
 				Weight : {value : '1'},
 				// WF : {value : '0'},
 				// WF_CurrentStep : {value : '0'},
 				// WF_TimeLeft : {value : '0'},
 				WorkMode : {value : '2'},
-				WorkStatus : {value : '3'},
-				WorkTime : {value : '1000'}
+				WorkStatus : {value : '4'},
+				WorkTime : {value : '10'}
 				// WorkTime_Left : {value : '0'},
 			};
 

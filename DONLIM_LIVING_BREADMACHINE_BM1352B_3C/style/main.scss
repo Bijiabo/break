@@ -455,6 +455,12 @@ body {
     color: #A0A0A0;
     font-size: 17px;
 }
+.step-list-item span {
+    color: #A0A0A0;
+}
+.done span, .active span{
+    color: #000
+}
 
 .step-list-item.active .step-list-item-icon .iconfont, .step-list-item.done .step-list-item-icon .iconfont {
     color: #f07947;
