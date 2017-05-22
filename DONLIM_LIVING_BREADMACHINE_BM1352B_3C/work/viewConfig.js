@@ -93,7 +93,7 @@ define([
             if (data.WorkMode !== '1') { //非云食谱
                 if (workStatusManager.isMultistep) { //多步骤工作模式
                     if (workStatusManager.isAppoinment) { //有预约
-                        alstep = 10;
+                        allStep = 10;
                     } else {
                         allStep = 9;
                     }
@@ -116,11 +116,11 @@ define([
                 allTime: allTime,
                 allTimeLength: allTimeLength,
                 additional: additional,
-                currentStep: currentStep,
+                currentStep: Number(data.WF_CurrentStep),
                 allStep: allStep,
-                working: ['1', '2', '3', '4'].indexOf(data.WorkStatus) >= 0,
+                working: ['2', '3', '4','5','6','7','8','9','10','11'].indexOf(data.WorkStatus) >= 0,
                 needAutoCountDown: false,
-                pause: data.WorkStatus === '5'
+                pause: data.WorkStatus === '1'
             }
         }
     }
@@ -137,14 +137,18 @@ define([
 
             if (workStatusManager.isMultistep) {
                 if (workStatusManager.isAppoinment) {
+                    console.log('isAppoinment------------>')
                     list = defaultArray;
                 } else {
+                    console.log('notIsAppoinment------------>')
                     list = defaultArray.slice(1);
                 }
             } else {
                 if (workStatusManager.isCustom) { //自定义模式
+                    console.log('isCustom------------>')
                     list = defaultArray.slice(1);
                 } else { //单步骤模式
+                    console.log('oneStep------------>')
                     list = ['制作中']
                 }
             }
@@ -153,7 +157,7 @@ define([
             return {
                 explain: '',
                 list: list,
-                stepNow: stepNow,
+                stepNow: Number(data.WF_CurrentStep) - 1,
                 isCloudMenu: data.WorkMode === '1',
                 cloudMenuHasAppointment: Number(data.TM_Start) > 0,
                 cloudMenuAdditionalStep: cloudMenuAdditionalStep
@@ -215,13 +219,13 @@ define([
                         value: '0'
                     }],
                     confirm: {
-                        title: '取消',
-                        text: '请确认是否取消工作',
+                        title: '温馨提示',
+                        text: '是否结束制作？',
                         confirm: {
                             text: '继续制作',
                             data: [{
                                 key: 'KG_Start',
-                                value: '0'
+                                value: '1'
                             }]
                         },
                         cancel: {

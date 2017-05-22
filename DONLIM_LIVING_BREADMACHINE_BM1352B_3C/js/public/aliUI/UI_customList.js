@@ -2,29 +2,24 @@
  * Created by huchunbo on 2016/9/30.
  */
 
-define(['./../vue', './public', './UI_timePicker', './UI_confirmView'], function(Vue, _public){
+define(['./../vue', './public', './UI_timePicker', './UI_confirmView'], function(Vue, _public) {
 
     var ComponentName = _public.ComponentName;
     var publicComputed = _public.publicComputed;
 
     // 头部信息显示控件
-    var StartView = Vue.extend({
+    var CustomList = Vue.extend({
         template: '<div :class="[show ? \'\' : \'hide\' ]" :e="enable">\
-                        <div class="start-view bottom-button-group">\
-                            <div v-if="itemData.minorButton"\
-                            class="minor-button ui-important-light-orange-btn"\
-                            v-tap="tapMinorButton"\
-                            v-html=itemData.minorButton.title\
-                            ></div>\
-                            <div v-if="itemData.majorButton"\
-                            class="major-button ui-important-orange-btn"\
-                            v-tap="tapMajorButton"\
-                            v-html=itemData.majorButton.title\
-                            ></div>\
+                        <div class="custom-list custom-group">\
+                            <div class="custom_list_child">\
+                                <i class="iconfont left_icon">{{{itemData.leftIcon}}}</i>\
+                                <p class="custom_step_title">{{{itemData.title}}}</p>\
+                                <i class="iconfont right_icon">{{{itemData.rightIcon}}}</i>\
+                                <p class="custom_step_time">{{{itemData.rightTime}}}</p>\
+                            </div>\
                         </div>\
                         <div \
-                        class="start-view-appointment-view"\
-                        v-if="itemData.appointment&&displayAppointmentUI"\
+                        class="custom-list-appointment-view"\
                         >\
                             <div class="shadow" v-tap="toggleAppointmentUI"></div>\
                             <div class="appointment-view-content">\
@@ -32,7 +27,7 @@ define(['./../vue', './public', './UI_timePicker', './UI_confirmView'], function
                                 :data.sync="data"\
                                 :item-data="timePickerConfig"\
                                 :display="displayAppointmentUI"\
-                                index="appointment"\
+                                :index="appointment"\
                                 auto-init="true"\
                                 ></time-picker>\
                                 \
@@ -48,15 +43,13 @@ define(['./../vue', './public', './UI_timePicker', './UI_confirmView'], function
                                 </div>\
                             </div>\
                         </div>\
-                        <confirm-view \
-                        v-if="itemData.majorButton.confirm"\
-                        :display="displayConfirm" \
-                        index="start-view" \
-                        :item-data="itemData.majorButton.confirm"\
-                        ></confirm-view>\
                     </div>',
         data: function() {
             return {
+                leftIcon: this.itemData.leftIcon,
+                title: this.itemData.title,
+                rightTime: this.itemData.rightTime,
+                rightIcon: this.itemData.rightIcon || "&#xe617;",
                 displayAppointmentUI: false,
                 timePickerConfig: this.itemData.appointment ? {
                     title: this.itemData.appointment.title || '设置制作时间',
@@ -82,74 +75,51 @@ define(['./../vue', './public', './UI_timePicker', './UI_confirmView'], function
         },
         props: ['index', 'itemData', 'currentValue', 'data'],
         methods: {
-            getViewCommandData: function(keys) {
-                // 获取界面设置项目的对应下发数据
-                var command = {};
-                if (keys === undefined) {return command;}
+            // getViewCommandData: function(keys) {
+            //     // 获取界面设置项目的对应下发数据
+            //     var command = {};
+            //     if (keys === undefined) {
+            //         return command;
+            //     }
 
-                for(var i=0,len=keys.length; i<len; i++) {
-                    var keyName = keys[i];
-                    if (window.data[keyName]) {
-                        command[keyName] = window.data[keyName];
-                    }
-                }
-                return command;
-            },
-            tapButton: function(){
-                if(this.itemData.customTapFunction) {
-                    return this.itemData.customTapFunction(this.data)
-                }
-            },
-            tapMajorButton: function () {
-                // 点击主按钮
-                if (this.checkIfNeedShowWorkingTip()) {return;}
-                window.loadPageCount = 1;
-                // 获取要下发的命令
-                if (this.itemData.majorButton.customTapFunction) {
-                    this.itemData.majorButton.customTapFunction(this.data);
-                } else {
-                    var keys = this.itemData.majorButton.keys;
-                    var command = this.getViewCommandData(keys);
-
-                    // 添加附加指令
-                    if (this.itemData.majorButton.additionalCommand) {
-                        var additionalCommands = this.itemData.majorButton.additionalCommand;
-                        for(var i=0,len=additionalCommands.length; i<len; i++) {
-                            var currentItem = additionalCommands[i];
-                            command[currentItem.key] = currentItem.value;
-                        }
-                    }
-                    _setDeviceStatus(false, command);
-                }
-
-                if (this.itemData.majorButton.displayConfirm) {
-                    this.displayConfirm.value = true;
-                }
-            },
-            tapMinorButton: function () {
+            //     for (var i = 0, len = keys.length; i < len; i++) {
+            //         var keyName = keys[i];
+            //         if (window.data[keyName]) {
+            //             command[keyName] = window.data[keyName];
+            //         }
+            //     }
+            //     return command;
+            // },
+            // tapButton: function() {
+            //     if (this.itemData.customTapFunction) {
+            //         return this.itemData.customTapFunction(this.data)
+            //     }
+            // },
+            buttonTimePicker: function() {
                 // 点击次要按钮
-                console.log('tapMinorButton');
-                if (this.checkIfNeedShowWorkingTip()) {return;}
-
-                // 获取要下发的命令
-                if (this.itemData.minorButton.customTapFunction) {
-                    this.itemData.minorButton.customTapFunction();
-                } else {
-                    var keys = this.itemData.majorButton.keys;
-                    var command = this.getViewCommandData(keys);
-
-                    // 添加附加指令
-                    if (this.itemData.majorButton.additionalCommand) {
-                        var additionalCommands = this.itemData.majorButton.additionalCommand;
-                        for(var i=0,len=additionalCommands.length; i<len; i++) {
-                            var currentItem = additionalCommands[i];
-                            command[currentItem.key] = currentItem.value;
-                        }
-                    }
-                    _setDeviceStatus(false, command);
+                if (this.checkIfNeedShowWorkingTip()) {
+                    return;
                 }
 
-                if (this.itemData.minorButton.appointment !== false) {
+                // 获取要下发的命令
+                // if (this.itemData.minorButton.customTapFunction) {
+                //     this.itemData.minorButton.customTapFunction();
+                // } else {
+                //     var keys = this.itemData.majorButton.keys;
+                //     var command = this.getViewCommandData(keys);
+
+                //     // 添加附加指令
+                //     if (this.itemData.majorButton.additionalCommand) {
+                //         var additionalCommands = this.itemData.majorButton.additionalCommand;
+                //         for (var i = 0, len = additionalCommands.length; i < len; i++) {
+                //             var currentItem = additionalCommands[i];
+                //             command[currentItem.key] = currentItem.value;
+                //         }
+                //     }
+                //     _setDeviceStatus(false, command);
+                // }
+
+                if (this.itemData.appointment !== false) {
                     this.toggleAppointmentUI();
                 }
 
@@ -160,7 +130,9 @@ define(['./../vue', './public', './UI_timePicker', './UI_confirmView'], function
             },
             tapSetAppointMentButton: function() {
                 // 获取要下发的命令
-                if (this.checkIfNeedShowWorkingTip()) {return;}
+                if (this.checkIfNeedShowWorkingTip()) {
+                    return;
+                }
 
                 window.loadPageCount = 1;
 
@@ -174,7 +146,7 @@ define(['./../vue', './public', './UI_timePicker', './UI_confirmView'], function
                     // 添加附加指令
                     if (currentItemData.additionalCommand) {
                         var additionalCommands = currentItemData.additionalCommand;
-                        for(var i=0,len=additionalCommands.length; i<len; i++) {
+                        for (var i = 0, len = additionalCommands.length; i < len; i++) {
                             var currentItem = additionalCommands[i];
                             command[currentItem.key] = currentItem.value;
                         }
@@ -186,7 +158,9 @@ define(['./../vue', './public', './UI_timePicker', './UI_confirmView'], function
             tapSetAppointCancelButton: function() {
                 this.toggleAppointmentUI();
                 // 获取要下发的命令
-                if (this.checkIfNeedShowWorkingTip()) {return;}
+                if (this.checkIfNeedShowWorkingTip()) {
+                    return;
+                }
 
                 var currentItemData = this.itemData.appointment;
                 if (currentItemData.customTapCancelFunction) {
@@ -198,7 +172,7 @@ define(['./../vue', './public', './UI_timePicker', './UI_confirmView'], function
                     // 添加附加指令
                     if (currentItemData.cancel.additionalCommand) {
                         var additionalCommands = currentItemData.cancel.additionalCommand;
-                        for(var i=0,len=additionalCommands.length; i<len; i++) {
+                        for (var i = 0, len = additionalCommands.length; i < len; i++) {
                             var currentItem = additionalCommands[i];
                             command[currentItem.key] = currentItem.value;
                         }
@@ -207,19 +181,20 @@ define(['./../vue', './public', './UI_timePicker', './UI_confirmView'], function
 
                 }
             },
-            checkIfNeedShowWorkingTip: function () {
+            checkIfNeedShowWorkingTip: function() {
                 var working = this.itemData.working(data);
                 if (working) {
                     DA.toast({
-                        cls:"toast-container",
-                        message:"正在工作中，未结束...",
-                        duration:1000,
-                        hold:false
+                        cls: "toast-container",
+                        message: "正在工作中，未结束...",
+                        duration: 1000,
+                        hold: false
                     });
                 }
 
                 return working;
-            }
+            },
+
         },
         computed: {
             show: function() {
@@ -230,8 +205,7 @@ define(['./../vue', './public', './UI_timePicker', './UI_confirmView'], function
             }
         }
     });
-    Vue.component('startView', StartView);
+    Vue.component('customList', CustomList);
 
-    return StartView;
+    return CustomList;
 });
-

@@ -1042,3 +1042,67 @@ body {
   color: #ff8650;
   padding: 0 3px;
 }
+
+/* line 918, main.scss */
+.custom-group {
+  width: 100%;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  /* fuck uc */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  box-orient: horizontal;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  box-pack: justify;
+  -webkit-box-align: stretch;
+  box-align: stretch;
+}
+
+/* line 942, main.scss */
+.custom_list_child {
+  border-bottom: 1px solid #eaeaea;
+  padding: 10px 0 10px 0;
+  width: 100%;
+  background-color: #fff;
+}
+/* line 947, main.scss */
+.custom_list_child .left_icon {
+  float: left;
+  color: #00c7b2;
+  font-size: 26px;
+  padding-left: 20px;
+  line-height: 32px;
+}
+/* line 954, main.scss */
+.custom_list_child .custom_step_title {
+  float: left;
+  line-height: 32px;
+  overflow: hidden;
+  font-size: 17px;
+  padding-left: 15px;
+}
+/* line 961, main.scss */
+.custom_list_child .custom_step_time {
+  float: right;
+  line-height: 32px;
+  font-size: 17px;
+  padding-right: 15px;
+  color: #00c7b2;
+}
+/* line 968, main.scss */
+.custom_list_child .right_icon {
+  float: right;
+  color: #b2b2b2;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 15px;
+  line-height: 32px;
+}

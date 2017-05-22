@@ -89,6 +89,29 @@ define(['./getModeKey','./../helper'], function(keys) {
 				stringValue: true
 			}
 		},
+		//添加自定义组件
+		singleCell : function(title, leftIcon){
+			return {
+				type: 'singleCell',
+            	title: title,
+            	after: '',
+            	leftIcon: leftIcon,
+            	rightIcon: "&#xe617;",
+            	onItemClick: function(data){
+
+            	}
+			}
+		},
+		// 添加自定义组件
+		customList : function(leftIcon, title, rightTime, rightIcon){
+			return {
+				type: 'customList',
+				leftIcon: leftIcon,
+				title: title,
+				rightTime: rightTime,
+				rightIcon: rightIcon
+			}
+		}
 	};
 	return generateComponent;
 })

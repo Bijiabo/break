@@ -32,7 +32,8 @@ define([
     './aliUI/UI_KDCountDownView',
     './aliUI/UI_KDMaskSliderView',
     './aliUI/UI_loadingView',
-    './aliUI/UI_promptCell'
+    './aliUI/UI_promptCell',
+    './aliUI/UI_customList'
 ], function(){
 
     var exportObject = {

@@ -235,6 +235,13 @@ define([], function(){
                         :index="index"\
                         :item-data="item"\
                         ></prompt-cell>\
+                        \
+                        <custom-list\
+                        v-if="item.type === \'customList\'"\
+                        :data.sync="data"\
+                        :index="index"\
+                        :item-data="item"\
+                        ></custom-list>\
     ';
 
     return template;

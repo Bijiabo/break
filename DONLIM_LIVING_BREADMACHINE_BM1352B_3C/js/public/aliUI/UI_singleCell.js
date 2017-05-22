@@ -18,6 +18,7 @@ define(['./../vue', './public'], function(Vue, _public) {
                 map: [{
                     title: component.$get('itemData.title'),
                     after: '',
+                    leftIcon: '',
                     rightIcon: "&#xe617;"
                 }]
             },
@@ -36,6 +37,20 @@ define(['./../vue', './public'], function(Vue, _public) {
                 }
             }
         };
+
+        // 判断左侧图标显示
+        var leftIcon = component.$get('itemData.leftIcon');
+        switch (Object.prototype.toString.call(leftIcon)) {
+            case '[object String]':
+                itemListConfig.datamodel.map[0].leftIcon = leftIcon;
+                break;
+            case '[object Function]':
+                itemListConfig.datamodel.map[0].leftIcon = leftIcon(component.$get('data'));
+                break;
+            default:
+                break;
+        }
+
 
         // 判断右侧图标显示
         var rightIcon = component.$get('itemData.rightIcon');

@@ -12,14 +12,14 @@ define(['./js/manager/workStatusManager'], function (workStatus) {
     workStatus.add(
         'isMultistep',
         function (data) {
-            return ['1','2','3','4','5','6','7','8','9','10','11','12','13'].indexOf(data.workMode) >= 0;
+            return ['1','2','3','4','5','6','7','8','9','10','11','12','13'].indexOf(data.WorkMode) >= 0;
         }
     );
 
     workStatus.add(
         'isCustom',
         function (data) {
-            return data.workMode === '31'
+            return data.WorkMode === '31'
         }
     );
     

@@ -314,6 +314,13 @@ define(['./getModeComponent', './getModeKey'], function(generateComponent, keys)
 			viewData: [
 				generateComponent.imageSetter(),
 				generateComponent.promptSetter(),
+				generateComponent.customList( '&#xe614;','搅拌1', '10分钟', "&#xe617;"),
+				generateComponent.customList( '&#xe623;','发酵1', '10分钟', "&#xe617;"),
+				generateComponent.customList( '&#xe614;','搅拌2', '10分钟', "&#xe617;"),
+				generateComponent.customList( '&#xe623;','发酵2', '10分钟', "&#xe617;"),
+				generateComponent.customList( '&#xe614;','搅拌3', '10分钟', "&#xe617;"),
+				generateComponent.customList( '&#xe623;','发酵3', '10分钟', "&#xe617;"),
+				generateComponent.customList( '&#xe60c;','烘烤', '10分钟', "&#xe617;"),
 			],
 			appointment: false, // 支持预约功能
 			keys: [keys.PowerMode, keys.WorkTime]

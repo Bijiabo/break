@@ -41,10 +41,10 @@ define(['./../vue', './public', './UI_timePicker', './UI_confirmView'], function
                 },
 
                 confirm: {
-                    title: '取消工作',
-                    text: '请确认是否取消工作',
+                    title: '温馨提示',
+                    text: '是否结束制作？',
                     confirm: {
-                        text: '确定',
+                        text: '继续制作',
                         data: [
                             {
                                 key: 'KG_Cancel',
@@ -53,7 +53,7 @@ define(['./../vue', './public', './UI_timePicker', './UI_confirmView'], function
                         ]
                     },
                     cancel: {
-                        text: '取消'
+                        text: '结束制作'
                     }
                 },
                 displayConfirm: {

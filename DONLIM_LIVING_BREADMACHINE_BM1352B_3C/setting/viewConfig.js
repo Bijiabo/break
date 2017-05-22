@@ -41,6 +41,11 @@ define([
                 }
                 return true;
             },
+            customTapFunction: function(data){
+                if(data.KG_Start == '1' || data.KG_Start == '0'){
+
+                }
+            },
             majorButton: {
                 title: '<i class="iconfont startIcon">&#xe605;</i>&nbsp;开启',
                 majorButtonClass: 'ui-important-orange-btn',

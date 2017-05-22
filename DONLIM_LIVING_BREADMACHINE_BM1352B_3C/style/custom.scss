@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'iconfont';  /* project id 303864 */
-  src: url('//at.alicdn.com/t/font_y9ghiktt57ugzaor.eot');
-  src: url('//at.alicdn.com/t/font_y9ghiktt57ugzaor.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_y9ghiktt57ugzaor.woff') format('woff'),
-  url('//at.alicdn.com/t/font_y9ghiktt57ugzaor.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_y9ghiktt57ugzaor.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_5q6gatq12hqnz5mi.eot');
+  src: url('//at.alicdn.com/t/font_5q6gatq12hqnz5mi.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_5q6gatq12hqnz5mi.woff') format('woff'),
+  url('//at.alicdn.com/t/font_5q6gatq12hqnz5mi.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_5q6gatq12hqnz5mi.svg#iconfont') format('svg');
 }
 
 /* 色板 */
@@ -368,7 +368,7 @@ $themeColorSuperLight : #FFF8F9;
 
 
 .ui-modal-buttons {
-  color: $themeColor;
+  color: $primary-color;
 }
 
 // ui-modal-box
@@ -390,4 +390,8 @@ $themeColorSuperLight : #FFF8F9;
     background-size: cover;
     background-position: center;
   }
+}
+.custom-list-appointment-view{
+  height: 200px;
+  background-color: #ccc
 }
