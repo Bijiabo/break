@@ -2,7 +2,7 @@
  * Created by huchunbo on 2016/9/30.
  */
 
-define(['./../vue', './public'], function(Vue, _public) {
+define(['./../vue', './public'], function(Vue, _public){
 
     var ComponentName = _public.ComponentName;
     var publicComputed = _public.publicComputed;
@@ -13,11 +13,6 @@ define(['./../vue', './public'], function(Vue, _public) {
         minute: 'minute',
         second: 'second'
     };
-
-    // var customTimeSetter = {
-    //     hour: Number(timeUnits.hour) + Number(currentTime.hour),
-    //     minute:
-    // }
 
     var maxValueForUnit = function(unit) {
         switch (unit) {
@@ -36,9 +31,9 @@ define(['./../vue', './public'], function(Vue, _public) {
         // 返回时间单位类型对应展示单位
         switch (unit) {
             case timeUnits.hour:
-                return '小时';
+                return '时';
             case timeUnits.minute:
-                return '分钟';
+                return '分';
             case timeUnits.second:
                 return '秒';
             default:
@@ -46,16 +41,12 @@ define(['./../vue', './public'], function(Vue, _public) {
         }
     };
 
-    var getArrayForTimeUnit = function(timeUnit, step, min, max) {
-        if (min === undefined) {
-            min = 0;
-        }
-        if (step === undefined) {
-            step = 1;
-        }
+    var getArrayForTimeUnit = function (timeUnit, step, min, max) {
+        if (min === undefined) {min = 0;}
+        if (step === undefined) {step = 1;}
         var result = [];
 
-        for (var i = min, len = max !== undefined ? max : maxValueForUnit(timeUnit); i <= len; i = i + step) {
+        for (var i=min,len= max!==undefined ? max : maxValueForUnit(timeUnit); i<=len; i=i+step) {
             result.push(i.toString());
         }
 
@@ -74,41 +65,45 @@ define(['./../vue', './public'], function(Vue, _public) {
             return {
                 dateTimeConfigData: [],
                 component: {},
-                dateTimeConfigration: [{
-                    key: timeUnits.hour,
-                    resource: [],
-                    value: '0',
-                    unit: '小时'
-                }, {
-                    key: timeUnits.minute,
-                    resource: [],
-                    value: '0',
-                    unit: '分钟'
-                }, {
-                    key: timeUnits.second,
-                    resource: [],
-                    value: '0',
-                    unit: '秒'
-                }],
+                dateTimeConfigration: [
+                    {
+                        key: timeUnits.hour,
+                        resource: [],
+                        value: '0',
+                        unit: '时'
+                    },
+                    {
+                        key: timeUnits.minute,
+                        resource: [],
+                        value: '0',
+                        unit: '分'
+                    },
+                    {
+                        key: timeUnits.second,
+                        resource: [],
+                        value: '0',
+                        unit: '秒'
+                    }
+                ],
                 value: 0,
                 shouldInit: true
             };
         },
-        ready: function() {
+        ready: function(){
             if (this.autoInit) {
                 this.init();
                 // 设定默认值
                 this.setValue(Number(this.itemData.defaultValue));
             }
             // this.$set('data._'+this.itemData.key, this.itemData.stringValue ? this.itemData.min.toString() : this.itemData.min);
-            this.$set('data._' + this.itemData.key, this.itemData.stringValue ? this.itemData.defaultValue.toString() : Number(this.itemData.defaultValue));
+            this.$set('data._'+this.itemData.key, this.itemData.stringValue ? this.itemData.defaultValue.toString() : Number(this.itemData.defaultValue));
 
         },
         props: ['index', 'itemData', 'currentValue', 'data', 'display', 'autoInit'],
         methods: {
             getDataTimeConfiguration: function() {
                 var config = [];
-                for (var i = 0, len = this.dateTimeConfigration.length; i < len; i++) {
+                for(var i=0,len=this.dateTimeConfigration.length;i<len;i++) {
                     var item = this.dateTimeConfigration[i];
                     if (item.resource.length > 0) {
                         config.push(item);
@@ -123,14 +118,14 @@ define(['./../vue', './public'], function(Vue, _public) {
                 var self = this;
                 this.component = new DA.Datetime({
                     preset: 'diy', // date, datetime, time; defaults date
-                    data: this.getDataTimeConfiguration(), //dateTimeConfigData,
-                    onChange: function(newData) {
+                    data:  this.getDataTimeConfiguration(),//dateTimeConfigData,
+                    onChange: function(newData){
                         self.userChangedSelect(newData, this);
                     }
                 });
-                this.component.render($(".time-picker_" + this.index));
+                this.component.render($(".time-picker_"+this.index));
             },
-            setupDateConfiguration: function() {
+            setupDateConfiguration: function () {
                 // 初始化配置数据
 
                 if (this.itemData.system12 === true) { // 时间选择
@@ -140,15 +135,15 @@ define(['./../vue', './public'], function(Vue, _public) {
                         value: '上午',
                         unit: ''
                     };
-                    this.dateTimeConfigration[1].unit = '小时';
-                    this.dateTimeConfigration[2].unit = '分钟';
+                    this.dateTimeConfigration[1].unit = '时';
+                    this.dateTimeConfigration[2].unit = '分';
                     this.dateTimeConfigration[1].resource = getArrayForTimeUnit(timeUnits.hour, 1, 0, 11);
                     this.dateTimeConfigration[2].resource = getArrayForTimeUnit(timeUnits.minute, 1, 0, 59);
                     // 自动选中当前时间
                     var currentData = new Date();
                     if (currentData.getHours() >= 12) {
                         this.dateTimeConfigration[0].value = '下午';
-                        this.dateTimeConfigration[1].value = (currentData.getHours() - 12).toString();
+                        this.dateTimeConfigration[1].value = (currentData.getHours()-12).toString();
                     } else {
                         this.dateTimeConfigration[0].value = '上午';
                         this.dateTimeConfigration[1].value = currentData.getHours().toString();
@@ -165,18 +160,18 @@ define(['./../vue', './public'], function(Vue, _public) {
                     var hourIndex = 0,
                         minuteIndex = 1,
                         secondIndex = 2;
-                    this.dateTimeConfigration[hourIndex].unit = '小时';
-                    this.dateTimeConfigration[minuteIndex].unit = '分钟';
+                    this.dateTimeConfigration[hourIndex].unit = '时';
+                    this.dateTimeConfigration[minuteIndex].unit = '分';
                     this.dateTimeConfigration[secondIndex].unit = '秒';
 
                     switch (this.itemData.unit) {
                         case timeUnits.second:
                             if (maxValue > 60) { // > 1 minute
                                 if (maxValue > 3600) { // > 1 hour
-                                    this.dateTimeConfigration[hourIndex].resource = getArrayForTimeUnit(timeUnits.hour, 1, 0, Math.floor(this.itemData.max / 3600));
+                                    this.dateTimeConfigration[hourIndex].resource = getArrayForTimeUnit(timeUnits.hour, 1, 0, Math.floor(this.itemData.max/3600));
                                     this.dateTimeConfigration[minuteIndex].resource = getArrayForTimeUnit(timeUnits.minute, 1);
                                 } else { // <= 1 hour
-                                    this.dateTimeConfigration[minuteIndex].resource = getArrayForTimeUnit(timeUnits.minute, 1, 0, Math.floor(this.itemData.max / 60));
+                                    this.dateTimeConfigration[minuteIndex].resource = getArrayForTimeUnit(timeUnits.minute, 1, 0, Math.floor(this.itemData.max/60));
                                 }
 
                                 this.dateTimeConfigration[secondIndex].resource = getArrayForTimeUnit(timeUnits.second, this.itemData.step, this.itemData.min);
@@ -187,9 +182,9 @@ define(['./../vue', './public'], function(Vue, _public) {
                             break;
                         case timeUnits.minute:
                             if (maxValue > 60) { // > 1 hour
-                                this.dateTimeConfigration[hourIndex].resource = getArrayForTimeUnit(timeUnits.hour, 1, Math.floor(this.itemData.min / 60) > 0 ? 1 : 0, Math.floor(this.itemData.max / 60));
-                                var remainder = (60 - this.itemData.min) % this.itemData.step;
-                                this.dateTimeConfigration[minuteIndex].resource = getArrayForTimeUnit(timeUnits.minute, this.itemData.step, Math.floor(this.itemData.min / 60) > 0 ? 0 : this.itemData.min, remainder === 0 ? (60 - this.itemData.step) : (60 - remainder));
+                                this.dateTimeConfigration[hourIndex].resource = getArrayForTimeUnit(timeUnits.hour, 1, Math.floor(this.itemData.min/60)>0?1:0, Math.floor(this.itemData.max/60));
+                                var remainder = (60-this.itemData.min)%this.itemData.step;
+                                this.dateTimeConfigration[minuteIndex].resource = getArrayForTimeUnit(timeUnits.minute, this.itemData.step, Math.floor(this.itemData.min/60)>0?0:this.itemData.min, remainder===0?(60-this.itemData.step):(60-remainder));
                             } else { // <= 1 hour
                                 this.dateTimeConfigration[minuteIndex].resource = getArrayForTimeUnit(timeUnits.minute, this.itemData.step, this.itemData.min, this.itemData.max);
                             }
@@ -207,15 +202,7 @@ define(['./../vue', './public'], function(Vue, _public) {
             getCurrentValue: function() {
                 // 获取当前控件值
                 var _time = 0;
-                var currentDate = new Date();
-                var currentTime = {
-                    hour: currentDate.getHours(),
-                    minute: currentDate.getMinutes(),
-                    second: currentDate.getSeconds()
-                }
-                console.log(currentTime.hour + ':' + currentTime.minute + ':' + currentTime.second)
                 var componentData = this.component.getTime();
-                
                 // console.warn(JSON.stringify(componentData, null, '\t'));
 
                 for (var key in componentData) {
@@ -223,13 +210,13 @@ define(['./../vue', './public'], function(Vue, _public) {
                         case timeUnits.hour:
                             switch (this.itemData.unit) {
                                 case timeUnits.second:
-                                    _time += [Number(componentData[key]) + Number(currentTime.hour)] * 3600;
+                                    _time += Number(componentData[key])*3600;
                                     break;
                                 case timeUnits.minute:
-                                    _time += [Number(componentData[key]) + Number(currentTime.minute)] * 60;
+                                    _time += Number(componentData[key])*60;
                                     break;
                                 case timeUnits.hour:
-                                    _time += [Number(componentData[key]) + Number(currentTime.second)];
+                                    _time += Number(componentData[key]);
                                 default:
                                     break;
                             }
@@ -237,33 +224,33 @@ define(['./../vue', './public'], function(Vue, _public) {
                         case timeUnits.minute:
                             switch (this.itemData.unit) {
                                 case timeUnits.second:
-                                    _time += [Number(componentData[key]) + Number(currentTime.minute)] * 60;
+                                    _time += Number(componentData[key])*60;
                                     break;
                                 case timeUnits.minute:
-                                    _time += [Number(componentData[key]) + Number(currentTime.second)];
+                                    _time += Number(componentData[key]);
                                     break;
                                 default:
                                     break;
                             }
                             break;
                         case timeUnits.second:
-                            _time += [Number(componentData[key]) + Number(currentTime.second)];
+                            _time += Number(componentData[key]);
                     }
                 }
 
                 // 处理 12 小时制问题
                 if (componentData.halfDay && this.itemData.system12) {
                     if (componentData.halfDay === '下午') {
-                        _time += 12 * 60;
+                        _time += 12*60;
                     }
                 }
 
                 if (this.itemData.fromNow) {
                     var _d = new Date();
-                    var currentTimeValue = _d.getHours() * 60 + _d.getMinutes();
+                    var currentTimeValue = _d.getHours()*60 + _d.getMinutes();
 
                     if (_time - currentTimeValue < 0) {
-                        _time = 24 * 60 + _time - currentTimeValue;
+                        _time = 24*60 + _time - currentTimeValue;
                     } else {
                         _time = _time - currentTimeValue;
                     }
@@ -277,16 +264,12 @@ define(['./../vue', './public'], function(Vue, _public) {
             updateDataConfiguration: function() {
                 this.getCurrentValue();
 
-                if (this.itemData.system12) {
-                    return;
-                }
+                if (this.itemData.system12) {return;}
 
-                var hasHour = this.dateTimeConfigration[0].resource.length > 0;
-                var hasMinute = this.dateTimeConfigration[1].resource.length > 0;
-                var hasSecond = this.dateTimeConfigration[2].resource.length > 0;
-                if (!hasHour && !hasMinute) {
-                    return;
-                }
+                var hasHour = this.dateTimeConfigration[0].resource.length >0;
+                var hasMinute = this.dateTimeConfigration[1].resource.length >0;
+                var hasSecond = this.dateTimeConfigration[2].resource.length >0;
+                if (!hasHour && !hasMinute) {return;}
 
                 var hourResource = this.dateTimeConfigration[0].resource;
                 var minuteResource = this.dateTimeConfigration[1].resource;
@@ -299,11 +282,9 @@ define(['./../vue', './public'], function(Vue, _public) {
                         if (hasMinute) {
                             if (hasSecond) { // resum second
                                 // 处理分钟
-                                var targetMaxMinuteValue = Math.floor((this.itemData.max - componentData.hour * 3600) / 60);
-                                if (targetMaxMinuteValue > 59) {
-                                    targetMaxMinuteValue = 59;
-                                }
-                                var currentMaxMinuteResourceValue = Number(minuteResource[minuteResource.length - 1]);
+                                var targetMaxMinuteValue = Math.floor((this.itemData.max - componentData.hour*3600)/60);
+                                if (targetMaxMinuteValue > 59) {targetMaxMinuteValue = 59;}
+                                var currentMaxMinuteResourceValue = Number(minuteResource[minuteResource.length-1]);
                                 if (currentMaxMinuteResourceValue != targetMaxMinuteValue) {
                                     var configItem = getArrayForTimeUnit(timeUnits.minute, 1, 0, targetMaxMinuteValue);
                                     this.dateTimeConfigration[1].resource = configItem;
@@ -315,12 +296,10 @@ define(['./../vue', './public'], function(Vue, _public) {
 
                                 // 处理秒
                                 componentData = this.component.getTime();
-                                var targetMaxSecondValue = this.itemData.max - componentData.hour * 3600 - componentData.minute * 60;
-                                if (targetMaxSecondValue > 59) {
-                                    targetMaxSecondValue = 59;
-                                }
-                                var minValueShouldBe = (Number(componentData.minute) > 0 || Number(componentData.hour) > 0) ? '0' : this.itemData.min.toString();
-                                if (Number(secondResource[secondResource.length - 1]) != targetMaxSecondValue || Number(secondResource[0]) != minValueShouldBe) {
+                                var targetMaxSecondValue = this.itemData.max - componentData.hour*3600 - componentData.minute*60;
+                                if (targetMaxSecondValue > 59) {targetMaxSecondValue = 59;}
+                                var minValueShouldBe = (Number(componentData.minute)>0 || Number(componentData.hour)>0) ? '0' : this.itemData.min.toString();
+                                if (Number(secondResource[secondResource.length-1]) != targetMaxSecondValue || Number(secondResource[0]) != minValueShouldBe ) {
                                     var configItem = getArrayForTimeUnit(timeUnits.second, this.itemData.step, Number(minValueShouldBe));
                                     this.dateTimeConfigration[2].resource = configItem;
                                     this.component.second.updateData(configItem);
@@ -334,12 +313,10 @@ define(['./../vue', './public'], function(Vue, _public) {
                                 }
 
                             } else { // resume minute
-                                var targetMaxMinuteValue = this.itemData.max - componentData.hour * 60;
-                                if (targetMaxMinuteValue > 59) {
-                                    targetMaxMinuteValue = 59;
-                                }
-                                var currentMaxMinuteResourceValue = Number(minuteResource[minuteResource.length - 1]);
-                                if (currentMaxMinuteResourceValue != targetMaxMinuteValue || Number(minuteResource[0]) != (Number(componentData.hour) > 0 ? 0 : this.itemData.min)) {
+                                var targetMaxMinuteValue = this.itemData.max - componentData.hour*60;
+                                if (targetMaxMinuteValue > 59) {targetMaxMinuteValue = 59;}
+                                var currentMaxMinuteResourceValue = Number(minuteResource[minuteResource.length-1]);
+                                if (currentMaxMinuteResourceValue != targetMaxMinuteValue || Number(minuteResource[0]) != (Number(componentData.hour)>0?0:this.itemData.min) ) {
                                     var targetMinMinuteValue = Number(componentData.hour) > 0 ? 0 : this.itemData.min;
                                     var configItem = getArrayForTimeUnit(timeUnits.minute, this.itemData.step, targetMinMinuteValue, targetMaxMinuteValue);
                                     this.dateTimeConfigration[1].resource = configItem;
@@ -356,17 +333,15 @@ define(['./../vue', './public'], function(Vue, _public) {
                         }
                     } else if (hasMinute) { // resume minute
                         if (hasSecond) { // resume second
-                            var targetMaxSecondValue = Math.floor(this.itemData.max - componentData.minute * 60);
-                            if (targetMaxSecondValue > 59) {
-                                targetMaxSecondValue = 59;
-                            }
-                            if (Number(secondResource[secondResource.length - 1]) != targetMaxSecondValue || Number(secondResource[0]) != (Number(componentData.minute) > 0 ? 0 : this.itemData.min)) {
+                            var targetMaxSecondValue = Math.floor(this.itemData.max - componentData.minute*60);
+                            if (targetMaxSecondValue > 59) {targetMaxSecondValue = 59;}
+                            if (Number(secondResource[secondResource.length-1]) != targetMaxSecondValue || Number(secondResource[0]) != (Number(componentData.minute)>0?0:this.itemData.min) ) {
                                 var targetMinSecondValue = Number(componentData.minute) > 0 ? 0 : this.itemData.min;
                                 var configItem = getArrayForTimeUnit(timeUnits.second, this.itemData.step, targetMinSecondValue, targetMaxSecondValue);
                                 this.dateTimeConfigration[2].resource = configItem;
                                 this.component.second.updateData(configItem);
                                 var newTargetData = {};
-                                if (targetMinSecondValue < Number(componentData.second)) {
+                                if (targetMinSecondValue < Number(componentData.second) ) {
                                     if (Number(componentData.second) < targetMaxSecondValue) {
                                         newTargetData.second = componentData.second;
                                     } else {
@@ -383,45 +358,45 @@ define(['./../vue', './public'], function(Vue, _public) {
                     return;
                 }
 
-                var minuteMaxValue = Number(this.dateTimeConfigration[1].resource[this.dateTimeConfigration[1].resource.length - 1]);
+                var minuteMaxValue = Number(this.dateTimeConfigration[1].resource[this.dateTimeConfigration[1].resource.length-1]);
 
-                if (this.dateTimeConfigration[0].resource.length > 0) { // has hour
-                    var hourMaxValue = Number(this.dateTimeConfigration[0].resource[this.dateTimeConfigration[0].resource.length - 1]);
+                if (this.dateTimeConfigration[0].resource.length >0) { // has hour
+                    var hourMaxValue = Number(this.dateTimeConfigration[0].resource[this.dateTimeConfigration[0].resource.length-1]);
 
                     if (this.dateTimeConfigration[2].resource.length > 0) { // hour minute second
 
-                        if (hourMaxValue * 3600 + minuteMaxValue * 60 > this.itemData.max) { // hour minute<needChange> second
-                            var configItem = getArrayForTimeUnit(timeUnits.minute, 1, 0, Math.ceil((this.itemData.max - hourMaxValue * 3600) / 60));
+                        if (hourMaxValue*3600 + minuteMaxValue*60 > this.itemData.max) { // hour minute<needChange> second
+                            var configItem = getArrayForTimeUnit(timeUnits.minute, 1, 0, Math.ceil((this.itemData.max-hourMaxValue*3600)/60));
                             this.dateTimeConfigration[1].resource = configItem;
                             this.component.minute.updateData(configItem);
                             var newTargetData = {};
-                            newTargetData.minute = configItem[configItem.length - 1];
+                            newTargetData.minute = configItem[configItem.length-1];
                             this.component.setData(newTargetData);
                             this.updateDataConfiguration();
                         } else { // hour minute second<needChange>
 
-                            var configItem = getArrayForTimeUnit(timeUnits.second, this.itemData.step, 0, Math.floor((this.itemData.max - hourMaxValue * 3600 - minuteMaxValue * 60)));
+                            var configItem = getArrayForTimeUnit(timeUnits.second, this.itemData.step, 0, Math.floor((this.itemData.max-hourMaxValue*3600-minuteMaxValue*60)));
                             this.dateTimeConfigration[2].resource = configItem;
                             this.component.second.updateData(configItem);
                             var newTargetData = {};
-                            newTargetData.second = configItem[configItem.length - 1];
+                            newTargetData.second = configItem[configItem.length-1];
                             this.component.setData(newTargetData);
                         }
                     } else { // hour minute<needChange>
-                        var configItem = getArrayForTimeUnit(timeUnits.minute, this.itemData.step, 0, this.itemData.max - hourMaxValue * 60);
+                        var configItem = getArrayForTimeUnit(timeUnits.minute, this.itemData.step, 0, this.itemData.max-hourMaxValue*60);
                         this.dateTimeConfigration[1].resource = configItem;
                         this.component.minute.updateData(configItem);
                         var newTargetData = {};
-                        newTargetData.minute = configItem[configItem.length - 1];
+                        newTargetData.minute = configItem[configItem.length-1];
                         this.component.setData(newTargetData);
                     }
                 } else { // minute second<needChange>
 
-                    var configItem = getArrayForTimeUnit(timeUnits.second, this.itemData.step, 0, Math.floor((this.itemData.max - minuteMaxValue * 60) / 60));
+                    var configItem = getArrayForTimeUnit(timeUnits.second, this.itemData.step, 0, Math.floor((this.itemData.max-minuteMaxValue*60)/60));
                     this.dateTimeConfigration[2].resource = configItem;
                     this.component.second.updateData(configItem);
                     var newTargetData = {};
-                    newTargetData.second = configItem[configItem.length - 1];
+                    newTargetData.second = configItem[configItem.length-1];
                     this.component.setData(newTargetData);
                 }
             },
@@ -430,8 +405,8 @@ define(['./../vue', './public'], function(Vue, _public) {
                 this.updateDataConfiguration();
                 var time = this.getCurrentValue(newData);
 
-                self.$set('data.' + self.itemData.key, self.itemData.stringValue ? time.toString() : time);
-                self.$set('data._' + self.itemData.key, self.itemData.stringValue ? time.toString() : time);
+                self.$set('data.'+self.itemData.key, self.itemData.stringValue ? time.toString() : time);
+                self.$set('data._'+self.itemData.key, self.itemData.stringValue ? time.toString() : time);
             },
             setValue: function(value) {
                 if (this.itemData.system12) {
@@ -443,12 +418,12 @@ define(['./../vue', './public'], function(Vue, _public) {
                         case timeUnits.second:
                             var targetData = {};
                             if (value >= 3600) {
-                                targetData.hour = Math.floor(value / 3600);
-                                targetData.minute = Math.floor((value - targetData.hour * 3600) / 60);
-                                targetData.second = value - targetData.hour * 3600 - targetData.minute * 60;
+                                targetData.hour = Math.floor(value/3600);
+                                targetData.minute = Math.floor((value-targetData.hour*3600)/60);
+                                targetData.second = value-targetData.hour*3600-targetData.minute*60;
                             } else if (value >= 60) {
-                                targetData.minute = Math.floor(value / 60);
-                                targetData.second = value % 60;
+                                targetData.minute = Math.floor(value/60);
+                                targetData.second = value%60;
                             } else {
                                 targetData.second = value;
                             }
@@ -457,23 +432,17 @@ define(['./../vue', './public'], function(Vue, _public) {
                         case timeUnits.minute:
                             if (value >= 60) {
                                 this.component.setData({
-                                    hour: Math.floor(value / 60),
+                                    hour: Math.floor(value/60),
                                     minute: value % 60
                                 });
                             } else {
-                                var targetData = {
-                                    minute: value
-                                };
-                                if (this.itemData.max >= 60) {
-                                    targetData.hour = 0;
-                                }
+                                var targetData = {minute: value};
+                                if (this.itemData.max >= 60) { targetData.hour = 0; }
                                 this.component.setData(targetData);
                             }
                             break;
                         case timeUnits.hour:
-                            this.component.setData({
-                                hour: value
-                            });
+                            this.component.setData({hour: value});
                             break;
                         default:
                             break;
@@ -491,25 +460,23 @@ define(['./../vue', './public'], function(Vue, _public) {
             }
         },
         watch: {
-            'display': function(val, oldVal) {
+            'display': function (val, oldVal) {
                 // 当显示变更为 true 的时候，重新初始化渲染组件，以解决触摸失效的问题
                 if (val) {
                     this.init();
                 }
             },
             'data': {
-                handler: function(newVal) {
+                handler: function (newVal) {
                     // console.warn('time piacker data change...');
                     if (this.itemData.ifCondition) {
                         var old_shouldInit = this.shouldInit;
                         this.shouldInit = this.itemData.ifCondition(newVal);
-                        if (this.shouldInit == old_shouldInit) {
-                            return;
-                        }
+                        if (this.shouldInit == old_shouldInit) {return;}
                         if (this.shouldInit) {
                             var self = this;
                             var defaultValue = Number(this.itemData.defaultValue);
-                            setTimeout(function() {
+                            setTimeout(function () {
                                 self.init();
                                 self.setValue(defaultValue);
                             }, 200);
@@ -524,3 +491,4 @@ define(['./../vue', './public'], function(Vue, _public) {
 
     return timePicker;
 });
+

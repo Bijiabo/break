@@ -33,7 +33,18 @@ define([
             // 点击取消按钮
         }
     };
-    viewData.push(actionSheetView);
+    // viewData.push(actionSheetView);
+    
+    // 时间选择器
+    var timePicker = {
+        title: '制作时间',
+        defaultValue: '1',
+        key: 'WorkTime',
+        type: 'timePicker',
+        system12: true,
+        stringValue: true
+    };
+    viewData.push(timePicker);
     
     return viewData;
 });
