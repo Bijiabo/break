@@ -2,7 +2,7 @@
  * Created by huchunbo on 2016/9/30.
  */
 
-define(['./../vue', './public', './components-template'], function(Vue, _public, upt_template){
+define(['./../vue', './public', './components-template'], function(Vue, _public, compontentsTemplate){
 
     var ComponentName = _public.ComponentName;
     var publicComputed = _public.publicComputed;
@@ -17,9 +17,8 @@ define(['./../vue', './public', './components-template'], function(Vue, _public,
                             <div class="action-sheet-view-content">\
                                 \
                                 <template v-for="(index,item) in subViewData">\
-                                '+upt_template+'\
+                                '+compontentsTemplate+'\
                                 </template>\
-                                \
                                 \
                                 <div class="bottom-button-group">\
                                     <div \

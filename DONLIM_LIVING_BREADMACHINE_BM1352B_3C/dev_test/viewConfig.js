@@ -12,7 +12,7 @@ define([
     
     var actionSheetView = {
         type: 'actionSheetView',
-        subViewData: [
+        subViewData: [ // 容器内主要区域的组件
             {
                 type: 'explainView',
                 title: 'this is title',
@@ -25,7 +25,13 @@ define([
                     return helperManager.syncTime(data);
                 }
             }
-        ]
+        ],
+        tapConfirm: function () {
+            // 点击确定按钮
+        },
+        tapCancel: function () {
+            // 点击取消按钮
+        }
     };
     viewData.push(actionSheetView);
     
