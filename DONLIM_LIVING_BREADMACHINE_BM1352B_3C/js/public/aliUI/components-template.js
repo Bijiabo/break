@@ -243,12 +243,6 @@ define([], function(){
                         :item-data="item"\
                         ></custom-list>\
                         \
-                        <action-sheet-view\
-                        v-if="item.type === \'actionSheetView\'"\
-                        :data.sync="data"\
-                        :index="index"\
-                        :item-data="item"\
-                        ></action-sheet-view>\
     ';
 
     return template;

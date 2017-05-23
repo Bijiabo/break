@@ -1,25 +1,16 @@
-/* line 3, main.scss */
 body {
-  background-color: #eeeeee;
-}
+  background-color: #eeeeee; }
 
-/* line 7, main.scss */
 #view {
   width: 100%;
-  overflow-x: hidden;
-}
+  overflow-x: hidden; }
 
-/* line 12, main.scss */
 .hide {
-  display: none;
-}
+  display: none; }
 
-/* line 15, main.scss */
 .c_g {
-  color: #02ae9c !important;
-}
+  color: #02ae9c !important; }
 
-/* line 19, main.scss */
 .toast-container {
   position: fixed;
   bottom: 70px;
@@ -29,56 +20,42 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 100%;
-}
+  width: 100%; }
 
-/* line 31, main.scss */
 .toast {
   background-color: rgba(0, 0, 0, 0.7);
   padding: 8px;
   border-radius: 8px;
   color: #ffffff;
-  text-align: center;
-}
+  text-align: center; }
 
-/* line 39, main.scss */
 .clearfix:after {
   visibility: hidden;
   display: block;
   font-size: 0;
   content: " ";
   clear: both;
-  height: 0;
-}
+  height: 0; }
 
-/* line 48, main.scss */
 .right-go {
   display: inline-block;
   right: 0;
   float: right;
   margin-right: 15px;
   margin-top: 20px;
-  color: #b2b2b2;
-}
+  color: #b2b2b2; }
 
-/* line 57, main.scss */
 .clock {
   float: left;
-  padding: 0 8px;
-}
+  padding: 0 8px; }
 
-/* line 61, main.scss */
 .clock i {
   font-size: 30px;
-  color: #666;
-}
+  color: #666; }
 
-/* line 65, main.scss */
 .clock em {
-  font-size: 15px;
-}
+  font-size: 15px; }
 
-/* line 68, main.scss */
 .clock-left {
   border-radius: 10px;
   background: #ededed;
@@ -88,93 +65,65 @@ body {
   vertical-align: middle;
   text-align: center;
   line-height: 16px;
-  font-size: 10px;
-}
+  font-size: 10px; }
 
-/* line 80, main.scss */
 .clock-hour, .clock-minute {
-  display: inline-block;
-}
+  display: inline-block; }
 
-/* line 84, main.scss */
 .colon {
   display: inline-block;
-  vertical-align: top;
-}
+  vertical-align: top; }
 
-/* line 87, main.scss */
 .colon i {
   margin-top: -2px;
-  display: block;
-}
+  display: block; }
 
-/* line 91, main.scss */
 .work-time-value {
   text-align: center;
   padding: 0 8px;
   color: #fff;
-  font-size: 40px;
-}
+  font-size: 40px; }
 
-/* line 98, main.scss */
 .status {
   padding-left: 15px;
   padding-top: 10px;
   padding-bottom: 15px;
-  background: #fff;
-}
+  background: #fff; }
 
-/* line 104, main.scss */
 .clock-hour, .clock-minute {
-  display: inline-block;
-}
+  display: inline-block; }
 
-/* line 107, main.scss */
 .panel-head .ui-mode-wrap {
-  margin-top: 15px;
-}
+  margin-top: 15px; }
 
-/* line 110, main.scss */
 .status-value {
   float: left;
   font-size: 14px;
   padding: 0 8px;
-  /*border-left:1px solid #999;*/
-}
+  /*border-left:1px solid #999;*/ }
 
-/* line 116, main.scss */
 .status-value-step {
-  /*border-left:1px solid #999;*/
-}
+  /*border-left:1px solid #999;*/ }
 
-/* line 119, main.scss */
 .top-temp {
   float: left;
   font-size: 14px;
   padding: 0 8px;
-  /*border-right: 1px solid #999*/
-}
+  /*border-right: 1px solid #999*/ }
 
-/* line 125, main.scss */
 .bottom-temp {
   float: left;
   font-size: 14px;
   padding: 0 8px;
-  border-left: 1px solid #999;
-}
+  border-left: 1px solid #999; }
 
-/* line 131, main.scss */
 .status-down {
-  /* margin-bottom:15px;*/
-}
+  /* margin-bottom:15px;*/ }
 
-/* line 136, main.scss */
 .margin-top-26 {
-  margin-top: 26px;
-}
+  margin-top: 26px; }
 
 /* product-mask */
-/* line 141, main.scss */
 .product-mask {
   background: #f2f2f2;
   background: -webkit-gradient(linear, 0 0, 0 bottom, from(rgba(255, 255, 255, 0)), to(rgba(237, 237, 237, 0.3)));
@@ -182,10 +131,8 @@ body {
   background: gradient(linear, 0 0, 0 bottom, from(rgba(153, 153, 153, 0)), to(rgba(153, 153, 153, 0.3)));
   position: absolute;
   width: 100%;
-  height: 160px;
-}
+  height: 160px; }
 
-/* line 150, main.scss */
 .product-img {
   height: 160px;
   background-repeat: no-repeat;
@@ -193,42 +140,30 @@ body {
   background-size: 200px;
   text-align: center;
   background: #fff;
-  overflow: hidden;
-}
+  overflow: hidden; }
 
-/* line 159, main.scss */
 .product-img img {
   width: 59%;
   height: auto;
-  margin-top: -6%;
-}
+  margin-top: -6%; }
 
-/* line 165, main.scss */
 .product-img img.full {
-  width: 100%;
-}
+  width: 100%; }
 
-/* line 169, main.scss */
 .ui-offNet {
-  position: fixed;
-}
+  position: fixed; }
 
-/* line 173, main.scss */
 .separator-view {
   background-color: #eeeeee;
   width: 100%;
   height: 20px;
-  clear: both;
-}
+  clear: both; }
 
 /* start view */
-/* line 181, main.scss */
 .start-view {
   background-color: #ffffff;
-  box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1);
-}
+  box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1); }
 
-/* line 185, main.scss */
 .bottom-button-group {
   position: fixed;
   bottom: 0;
@@ -250,39 +185,29 @@ body {
   -moz-box-pack: justify;
   box-pack: justify;
   -webkit-box-align: stretch;
-  box-align: stretch;
-}
+  box-align: stretch; }
 
-/* line 213, main.scss */
 .bottom-button-group > div {
   flex-grow: 1;
   -webkit-box-flex: 1;
-  margin: 8px;
-}
+  margin: 8px; }
 
-/* line 219, main.scss */
 .bottom-button-group > div.major-button {
   flex-grow: 2;
-  -webkit-box-flex: 2;
-}
+  -webkit-box-flex: 2; }
 
-/* line 223, main.scss */
 .bottom-button-group > div.minor-button {
   flex-grow: 1;
-  -webkit-box-flex: 1;
-}
+  -webkit-box-flex: 1; }
 
-/* line 228, main.scss */
 .start-view-appointment-view {
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  z-index: 20;
-}
+  z-index: 20; }
 
-/* line 236, main.scss */
 .start-view-appointment-view .shadow {
   position: absolute;
   top: 0;
@@ -290,10 +215,8 @@ body {
   width: 100%;
   height: 100%;
   z-index: 1;
-  background-color: rgba(0, 0, 0, 0.3);
-}
+  background-color: rgba(0, 0, 0, 0.3); }
 
-/* line 246, main.scss */
 .start-view-appointment-view .appointment-view-content {
   position: absolute;
   bottom: 0;
@@ -303,11 +226,9 @@ body {
   z-index: 2;
   background-color: #ffffff;
   box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.3);
-  padding-bottom: 60px;
-}
+  padding-bottom: 60px; }
 
 /* count-down-view */
-/* line 259, main.scss */
 .count-down-view {
   position: relative;
   display: -webkit-flex;
@@ -328,20 +249,14 @@ body {
   -moz-box-pack: center;
   box-pack: center;
   -webkit-box-align: center;
-  background-color: #f07947;
-}
+  background-color: #f07947; }
 
-/* line 285, main.scss */
 .count-down-view.working {
-  background-color: #f07947;
-}
+  background-color: #f07947; }
 
-/* line 288, main.scss */
 .count-down-view.pause {
-  background-color: #02ae9c;
-}
+  background-color: #02ae9c; }
 
-/* line 291, main.scss */
 .count-down-view .circle-view {
   display: -webkit-flex;
   display: flex;
@@ -360,40 +275,28 @@ body {
   -webkit-box-pack: center;
   -moz-box-pack: center;
   box-pack: center;
-  -webkit-box-align: center;
-}
+  -webkit-box-align: center; }
 
-/* line 315, main.scss */
 .count-down-view .circle-view {
   background: url(http://gtms03.alicdn.com/tps/i3/TB1za71KFXXXXXgXXXXXe_SIVXX-570-570.gif) top no-repeat;
-  background-size: 270px;
-}
+  background-size: 270px; }
 
-/* line 320, main.scss */
 .count-down-view.working .circle-view {
   background: url(http://gtms03.alicdn.com/tps/i3/TB1za71KFXXXXXgXXXXXe_SIVXX-570-570.gif) top no-repeat;
-  background-size: 270px;
-}
+  background-size: 270px; }
 
-/* line 325, main.scss */
 .count-down-view.pause .circle-view {
   background: url(http://gtms03.alicdn.com/tps/i3/TB1MS3JKFXXXXbUaXXXb2YSIVXX-570-570.png) top no-repeat;
-  background-size: 270px;
-}
+  background-size: 270px; }
 
-/* line 330, main.scss */
 .count-down-view .circle-view .content-main {
   font-size: 2em;
   margin: 10px 0;
-  font-family: "Microsoft YaHei";
-}
+  font-family: "Microsoft YaHei"; }
 
-/* line 338, main.scss */
 .count-down-view .circle-view .content-main .iconfont {
-  font-size: 2em;
-}
+  font-size: 2em; }
 
-/* line 342, main.scss */
 .count-down-view .step-count {
   position: absolute;
   right: 10px;
@@ -402,62 +305,44 @@ body {
   height: 50px;
   background: url(http://gtms03.alicdn.com/tps/i3/TB1JtugKVXXXXbGXVXXiyDJ6XXX-119-119.png);
   background-size: 50px;
-  color: #fff;
-}
+  color: #fff; }
 
-/* line 353, main.scss */
 .count-down-view .step-count .current-step {
   position: absolute;
   left: 12px;
-  top: 10px;
-}
+  top: 10px; }
 
-/* line 359, main.scss */
 .count-down-view .step-count .all-step {
   position: absolute;
   right: 12px;
-  bottom: 10px;
-}
+  bottom: 10px; }
 
-/* line 365, main.scss */
 .count-down-view .content-main-explain {
-  font-size: 1.3em;
-}
+  font-size: 1.3em; }
 
-/* line 368, main.scss */
 .count-down-view .content-main-explain .iconfont {
   font-size: 1.3em;
-  margin-top: 5px;
-}
+  margin-top: 5px; }
 
-/* line 373, main.scss */
 .count-down-view .content-state {
-  font-size: 1.2em;
-}
+  font-size: 1.2em; }
 
-/* line 377, main.scss */
 .count-down-view .circle-view .content-main .unit {
   font-size: 0.4em;
-  padding: 0 5px;
-}
+  padding: 0 5px; }
 
 /* step-view */
-/* line 383, main.scss */
 .step-view {
   background-color: #ffffff;
   width: 100%;
-  /*overflow-x: hidden;*/
-}
+  /*overflow-x: hidden;*/ }
 
-/* line 389, main.scss */
 .step-list-item {
   position: relative;
   padding: 16px 16px 16px 50px;
   font-size: 17px;
-  /*border-bottom: 1px solid #ececec;*/
-}
+  /*border-bottom: 1px solid #ececec;*/ }
 
-/* line 396, main.scss */
 .step-list-item:after {
   content: "";
   position: absolute;
@@ -465,10 +350,8 @@ body {
   left: 50px;
   width: 100%;
   height: 1px;
-  background-color: #ececec;
-}
+  background-color: #ececec; }
 
-/* line 406, main.scss */
 .step-list-item:before {
   content: "";
   position: absolute;
@@ -477,48 +360,32 @@ body {
   width: 1px;
   height: 32px;
   margin-top: 12px;
-  background-color: #E4E4E4;
-}
+  background-color: #E4E4E4; }
 
-/* line 417, main.scss */
 .step-list-item:last-child:before {
-  height: 0;
-}
+  height: 0; }
 
-/* line 421, main.scss */
 .step-list-item.description {
   background-color: #fffcd3;
-  color: #f07947;
-}
+  color: #f07947; }
 
-/* line 426, main.scss */
 .step-list-item.description:before {
-  height: 0;
-}
+  height: 0; }
 
-/* line 430, main.scss */
 .step-list-item.description .step-list-item-icon {
   top: 16px;
   margin-top: 0;
-  background: transparent;
-}
+  background: transparent; }
 
-/* line 436, main.scss */
 .step-list-item.description .step-list-item-icon .iconfont {
-  color: #f07947;
-}
+  color: #f07947; }
 
-/* line 440, main.scss */
 .step-list-item.done:before {
-  background-color: #f07947;
-}
+  background-color: #f07947; }
 
-/* line 444, main.scss */
 .step-list-item.done.change:before {
-  background-color: #02ae9c;
-}
+  background-color: #02ae9c; }
 
-/* line 448, main.scss */
 .step-list-item .step-list-item-icon {
   position: absolute;
   top: 50%;
@@ -527,47 +394,33 @@ body {
   height: 20px;
   margin-top: -10px;
   background-color: #ffffff;
-  /*border-radius: 50%;*/
-}
+  /*border-radius: 50%;*/ }
 
-/* line 459, main.scss */
 .step-list-item-icon .iconfont {
   line-height: 20px;
   text-align: center;
   color: #A0A0A0;
-  font-size: 17px;
-}
+  font-size: 17px; }
 
-/* line 465, main.scss */
 .step-list-item span {
-  color: #A0A0A0;
-}
+  color: #A0A0A0; }
 
-/* line 468, main.scss */
 .done span, .active span {
-  color: #000;
-}
+  color: #000; }
 
-/* line 472, main.scss */
 .step-list-item.active .step-list-item-icon .iconfont, .step-list-item.done .step-list-item-icon .iconfont {
-  color: #f07947;
-}
+  color: #f07947; }
 
-/* line 476, main.scss */
 .step-list-item.active {
-  color: RGBA(240, 121, 71, 1);
-}
+  color: RGBA(240, 121, 71, 1); }
 
-/* line 480, main.scss */
 .step-list-item-info {
   position: relative;
   top: 1px;
   left: 0;
   padding: 10px;
-  color: #A0A0A0;
-}
+  color: #A0A0A0; }
 
-/* line 489, main.scss */
 .step-list-item-info.active:before {
   content: attr(content);
   position: absolute;
@@ -580,10 +433,8 @@ body {
   margin-left: -100px;
   padding: 10px;
   border-radius: 6px;
-  font-size: 12px;
-}
+  font-size: 12px; }
 
-/* line 505, main.scss */
 .step-list-item-info.active:after {
   content: "";
   position: absolute;
@@ -595,56 +446,42 @@ body {
   height: 0;
   border-style: solid;
   border-width: 10px 10px 0 10px;
-  border-color: rgba(0, 0, 0, 0.6) transparent transparent transparent;
-}
+  border-color: rgba(0, 0, 0, 0.6) transparent transparent transparent; }
 
 /* explain-view */
-/* line 524, main.scss */
 .explain-view .title {
   background-color: #f7f7f7;
   padding: 10px;
   color: #666666;
   font-size: 14px;
-  line-height: 14px;
-}
+  line-height: 14px; }
 
-/* line 532, main.scss */
 .explain-view .content {
   background: #ffffff;
   padding: 10px;
   line-height: 22px;
-  color: #757575;
-}
+  color: #757575; }
 
-/* line 539, main.scss */
 .explain-view .content p {
-  margin-bottom: 10px;
-}
+  margin-bottom: 10px; }
 
-/* line 543, main.scss */
 .explain-view .content p:last-child {
-  margin-bottom: 0;
-}
+  margin-bottom: 0; }
 
 /* time-picker */
-/* line 548, main.scss */
 .time-picker-component-container .title {
   background-color: #f7f7f7;
   padding: 10px;
   color: #666666;
-  font-size: 14px;
-}
+  font-size: 14px; }
 
 /* state-mask-view */
-/* line 556, main.scss */
 .state-mask {
   background: #fff;
   padding: 40px 0;
   width: 100%;
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
-/* line 563, main.scss */
 .state-mask .lock {
   margin: 0 auto;
   background-size: 100% 100% !important;
@@ -653,20 +490,16 @@ body {
   background: url(https://img.alicdn.com/tps/TB1MPamLXXXXXaOXFXXXXXXXXXX-520-384.png);
   text-align: center;
   padding-top: 60px;
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 /* work done */
-/* line 576, main.scss */
 .work-done {
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
   background-color: #ffffff;
-  background-image: url("https://img.alicdn.com/imgextra/i3/176994656/TB2s9xbnmFjpuFjSspbXXXagVXa_!!176994656.jpg");
-}
+  background-image: url("https://img.alicdn.com/imgextra/i3/176994656/TB2s9xbnmFjpuFjSspbXXXagVXa_!!176994656.jpg"); }
 
-/* line 588, main.scss */
 .work-done-keep-warm {
   width: 100%;
   height: 400px;
@@ -674,10 +507,8 @@ body {
   background-position: top;
   background-size: 320px;
   background-color: #ffffff;
-  background-image: url("https://img.alicdn.com/imgextra/i4/151197236/TB26H0hdr0kpuFjy0FjXXcBbVXa_!!151197236.png");
-}
+  background-image: url("https://img.alicdn.com/imgextra/i4/151197236/TB26H0hdr0kpuFjy0FjXXcBbVXa_!!151197236.png"); }
 
-/* line 597, main.scss */
 .work-done-disinfection {
   width: 100%;
   height: 400px;
@@ -685,11 +516,9 @@ body {
   background-position: top;
   background-size: 320px;
   background-color: #ffffff;
-  background-image: url("https://img.alicdn.com/imgextra/i4/151197236/TB2KzBudrVkpuFjSspcXXbSMVXa_!!151197236.jpg");
-}
+  background-image: url("https://img.alicdn.com/imgextra/i4/151197236/TB2KzBudrVkpuFjSspcXXbSMVXa_!!151197236.jpg"); }
 
 /* navigation-bar */
-/* line 608, main.scss */
 .navigation-bar {
   position: fixed;
   top: 48px;
@@ -701,38 +530,26 @@ body {
   justify-content: space-between;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
-  color: rgba(255, 255, 255, 0.7);
-}
+  color: rgba(255, 255, 255, 0.7); }
 
-/* line 625, main.scss */
 .navigation-bar > div {
   /*height: 40px;*/
-  background-color: rgba(255, 255, 255, 0.5);
-}
+  background-color: rgba(255, 255, 255, 0.5); }
 
-/* line 630, main.scss */
 .navigation-bar .left {
-  flex-basis: 50px;
-}
+  flex-basis: 50px; }
 
-/* line 634, main.scss */
 .navigation-bar .right {
-  flex-basis: 50px;
-}
+  flex-basis: 50px; }
 
-/* line 638, main.scss */
 .navigation-bar .title {
   /*flex-grow: 1;*/
-  text-align: center;
-}
+  text-align: center; }
 
 /* switch cell */
-/* line 644, main.scss */
 .switch_cell_container {
-  position: relative;
-}
+  position: relative; }
 
-/* line 648, main.scss */
 .swtich_cell_interact_area {
   position: absolute;
   right: 0;
@@ -740,28 +557,22 @@ body {
   height: 100%;
   width: 75px;
   z-index: 1;
-  background: transparent;
-}
+  background: transparent; }
 
 /* grid */
-/* line 659, main.scss */
 .ui-item-label {
   background: #f7f7f7;
   padding: 10px;
   color: #666666;
   font-size: 14px;
-  line-height: 14px;
-}
+  line-height: 14px; }
 
-/* line 667, main.scss */
 .ui-grid .ui-item-label span {
   position: relative;
   top: -2px;
-  font-size: 12px;
-}
+  font-size: 12px; }
 
 /* tab */
-/* line 674, main.scss */
 .ui-tabs-title {
   height: 33px;
   margin: 8px;
@@ -773,16 +584,12 @@ body {
   display: -o-box;
   display: -ms-flexbox;
   display: flex;
-  vertical-align: middle;
-}
+  vertical-align: middle; }
 
-/* line 689, main.scss */
 .ui-tabs-title .ui-tab-title:first-child {
   border-left-width: 1px;
-  border-radius: 5px 0 0 5px;
-}
+  border-radius: 5px 0 0 5px; }
 
-/* line 694, main.scss */
 .ui-tabs-title .ui-tab-title {
   text-decoration: none;
   -moz-box-flex: 1;
@@ -796,17 +603,13 @@ body {
   color: #00c7b2;
   background: #fff;
   transition: background .2s;
-  -webkit-transition: background .2s;
-}
+  -webkit-transition: background .2s; }
 
-/* line 710, main.scss */
 .ui-tabs-title .ui-tab-title.active {
   color: #fff;
-  background: #00c7b2;
-}
+  background: #00c7b2; }
 
 /* custom serial pip slider*/
-/* line 716, main.scss */
 .serialMode .serial-pip-slider-item .ui-slider-handle:before {
   content: attr(value);
   position: absolute;
@@ -818,69 +621,47 @@ body {
   margin-left: -50px;
   color: #00c7b2;
   font-size: 15px;
-  text-align: center;
-}
+  text-align: center; }
 
-/* line 729, main.scss */
 .serialMode .serial-pip-slider-item .ui-slider-Desc.currentXLabel {
-  color: #666;
-}
+  color: #666; }
 
-/* line 733, main.scss */
 .serialMode .serial-pip-slider-item .ui-slider-Desc {
-  display: none;
-}
+  display: none; }
 
-/* line 737, main.scss */
 .serialMode .serial-pip-slider-item .ui-slider-Desc:first-child,
 .serialMode .serial-pip-slider-item .ui-slider-Desc:last-child {
-  display: inline-block;
-}
+  display: inline-block; }
 
-/* line 743, main.scss */
 .serialMode .serial-pip-slider-item.ui-slider-item .ui-slider-cont {
-  margin-bottom: 14px;
-}
+  margin-bottom: 14px; }
 
-/* line 746, main.scss */
 .no-slider-label .ui-slider-label {
-  display: none;
-}
+  display: none; }
 
-/* line 749, main.scss */
 .no-slider-label .ui-slider-item {
-  padding-top: 32px;
-}
+  padding-top: 32px; }
 
-/* line 752, main.scss */
 .panel-title-cell {
   background-color: #f7f7f7;
   padding: 10px;
   color: #666666;
-  font-size: 14px;
-}
+  font-size: 14px; }
 
 /* custom start-view */
-/* line 760, main.scss */
 .start-view-main-button {
   border-color: #FF5681;
-  background-color: #FF5681;
-}
+  background-color: #FF5681; }
 
 /* custom tab component */
-/* line 766, main.scss */
 .ui-tabs-title .ui-tab-title {
   border: 1px solid #FF5681;
-  color: #FF5681;
-}
+  color: #FF5681; }
 
-/* line 771, main.scss */
 .ui-tabs-title .ui-tab-title.active {
-  background: #FF5681;
-}
+  background: #FF5681; }
 
 /* loading view */
-/* line 776, main.scss */
 .loading-view {
   box-sizing: border-box;
   position: fixed;
@@ -893,10 +674,8 @@ body {
   margin-top: -100px;
   padding-top: 30px;
   color: #ffffff;
-  z-index: 999;
-}
+  z-index: 999; }
 
-/* line 790, main.scss */
 .loading-view:before {
   content: "";
   position: fixed;
@@ -905,10 +684,8 @@ body {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background-color: white;
-}
+  background-color: white; }
 
-/* line 800, main.scss */
 .loading-view .loading-icon {
   position: absolute;
   left: 0;
@@ -918,16 +695,12 @@ body {
   background: #CCCCCC;
   text-align: center;
   border-radius: 50%;
-  overflow: hidden;
-}
+  overflow: hidden; }
 
-/* line 811, main.scss */
 .loading-view .loading-icon .iconfont {
   font-size: 80px;
-  line-height: 120px;
-}
+  line-height: 120px; }
 
-/* line 815, main.scss */
 .loading-view .loading-text {
   position: absolute;
   top: 140px;
@@ -935,37 +708,27 @@ body {
   width: 100%;
   text-align: center;
   color: #CCCCCC;
-  font-size: 14px;
-}
+  font-size: 14px; }
 
 /* fix cell separator line  */
-/* line 827, main.scss */
 .ui-item-list ul:after, .ui-item-list ul:before {
-  height: 0;
-}
+  height: 0; }
 
 /* prompt cell component */
-/* line 832, main.scss */
 .prompt-cell .content {
   background-color: #EEAC8C;
   padding: 10px;
   line-height: 22px;
   color: #fff;
-  text-align: center;
-}
+  text-align: center; }
 
-/* line 840, main.scss */
 .prompt-cell .content p {
-  margin-bottom: 10px;
-}
+  margin-bottom: 10px; }
 
-/* line 844, main.scss */
 .prompt-cell .content p:last-child {
-  margin-bottom: 0;
-}
+  margin-bottom: 0; }
 
 /* startView button */
-/* line 849, main.scss */
 .ui-important-light-orange-btn {
   text-align: center;
   width: 60px;
@@ -973,66 +736,48 @@ body {
   line-height: 40px;
   border: none;
   background-color: #fdf0eb;
-  color: #f07947;
-}
-/* line 851, main.scss */
-.ui-important-light-orange-btn:active {
-  background-color: #fdf0eb;
-  color: #f07947;
-}
+  color: #f07947; }
+  .ui-important-light-orange-btn:active {
+    background-color: #fdf0eb;
+    color: #f07947; }
 
-/* line 863, main.scss */
 .ui-important-dark-orange-btn {
   text-align: center;
   height: 40px;
   line-height: 40px;
   border: none;
   background-color: #f07947;
-  color: white;
-}
-/* line 865, main.scss */
-.ui-important-dark-orange-btn:active {
-  background-color: #f07947;
-  color: white;
-}
+  color: white; }
+  .ui-important-dark-orange-btn:active {
+    background-color: #f07947;
+    color: white; }
 
-/* line 877, main.scss */
 .ui-disable-major-btn {
   text-align: center;
   height: 40px;
   line-height: 40px;
   border: none;
   background-color: #efefef;
-  color: #9b9b9b;
-}
-/* line 878, main.scss */
-.ui-disable-major-btn:active {
-  background-color: #efefef;
-  color: #9b9b9b;
-}
+  color: #9b9b9b; }
+  .ui-disable-major-btn:active {
+    background-color: #efefef;
+    color: #9b9b9b; }
 
-/* line 890, main.scss */
 .ui-disable-minor-btn {
   text-align: center;
   height: 40px;
   line-height: 40px;
   border: none;
   background-color: #dfdfdf;
-  color: #fff;
-}
-/* line 891, main.scss */
-.ui-disable-minor-btn:active {
-  background-color: #dfdfdf;
-  color: #fff;
-}
+  color: #fff; }
+  .ui-disable-minor-btn:active {
+    background-color: #dfdfdf;
+    color: #fff; }
 
-/* line 903, main.scss */
 .startIcon {
-  font-size: 0.9em;
-}
+  font-size: 0.9em; }
 
 /* stopView button */
-/* line 908, main.scss */
 .ui-important-light-green-btn {
   text-align: center;
   width: 60px;
@@ -1041,15 +786,11 @@ body {
   color: #fff;
   border: none;
   background-color: #eafffd;
-  color: #00c7b2;
-}
-/* line 910, main.scss */
-.ui-important-light-green-btn:active {
-  background-color: #eafffd;
-  color: #00c7b2;
-}
+  color: #00c7b2; }
+  .ui-important-light-green-btn:active {
+    background-color: #eafffd;
+    color: #00c7b2; }
 
-/* line 923, main.scss */
 .ui-important-dark-green-btn {
   text-align: center;
   height: 40px;
@@ -1057,31 +798,23 @@ body {
   color: #fff;
   border: none;
   background-color: #00c7b2;
-  color: white;
-}
-/* line 925, main.scss */
-.ui-important-dark-green-btn:active {
-  background-color: #00c7b2;
-  color: white;
-}
+  color: white; }
+  .ui-important-dark-green-btn:active {
+    background-color: #00c7b2;
+    color: white; }
 
 /* timePicker component */
-/* line 939, main.scss */
 .expect-time {
   text-align: center;
   height: 40px;
   line-height: 60px;
-  font-size: 1.1em;
-}
+  font-size: 1.1em; }
 
-/* line 945, main.scss */
 .expect-time p {
   display: inline;
   color: #ff8650;
-  padding: 0 3px;
-}
+  padding: 0 3px; }
 
-/* line 950, main.scss */
 .custom-group {
   width: 100%;
   display: -webkit-flex;
@@ -1099,48 +832,57 @@ body {
   -moz-box-pack: justify;
   box-pack: justify;
   -webkit-box-align: stretch;
-  box-align: stretch;
-}
+  box-align: stretch; }
 
-/* line 974, main.scss */
 .custom_list_child {
   border-bottom: 1px solid #eaeaea;
   padding: 10px 0 10px 0;
   width: 100%;
-  background-color: #fff;
-}
-/* line 979, main.scss */
-.custom_list_child .left_icon {
-  float: left;
-  color: #00c7b2;
-  font-size: 26px;
-  padding-left: 20px;
-  line-height: 32px;
-}
-/* line 986, main.scss */
-.custom_list_child .custom_step_title {
-  float: left;
-  line-height: 32px;
-  overflow: hidden;
-  font-size: 17px;
-  padding-left: 15px;
-}
-/* line 993, main.scss */
-.custom_list_child .custom_step_time {
-  float: right;
-  line-height: 32px;
-  font-size: 17px;
-  padding-right: 15px;
-  color: #00c7b2;
-}
-/* line 1000, main.scss */
-.custom_list_child .right_icon {
-  float: right;
-  color: #b2b2b2;
-  max-width: 120px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  padding-right: 15px;
-  line-height: 32px;
-}
+  background-color: #fff; }
+  .custom_list_child .left_icon {
+    float: left;
+    color: #00c7b2;
+    font-size: 26px;
+    padding-left: 20px;
+    line-height: 32px; }
+  .custom_list_child .custom_step_title {
+    float: left;
+    line-height: 32px;
+    overflow: hidden;
+    font-size: 17px;
+    padding-left: 15px; }
+  .custom_list_child .custom_step_time {
+    float: right;
+    line-height: 32px;
+    font-size: 17px;
+    padding-right: 15px;
+    color: #00c7b2; }
+  .custom_list_child .right_icon {
+    float: right;
+    color: #b2b2b2;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 15px;
+    line-height: 32px; }
+
+.action-sheet-view {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 20; }
+  .action-sheet-view .action-sheet-view-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100px;
+    z-index: 2;
+    background-color: #ffffff;
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.3);
+    padding-bottom: 60px; }
+
+/*# sourceMappingURL=main.css.map */
