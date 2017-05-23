@@ -101,6 +101,17 @@ define(['./../vue', './public', 'cookbook'+(window.____isTestEnv ? '_test':'')],
                 } else {
                     this.list = displayData.list;
                 }
+
+                // 暂停状态下icon变化
+                if(['1'].indexOf(this.data.WorkStatus) >= 0){
+                    $('.done .iconfont').addClass('c_g');
+                    $('.active .iconfont').addClass('c_g');
+                    $('.done').addClass('change');
+                }else{
+                    $('.done .iconfont').removeClass('c_g');
+                    $('.active .iconfont').removeClass('c_g');
+                    $('.done').removeClass('change');
+                }
             },
             updateCookbookData: function() {
                 var self = this;

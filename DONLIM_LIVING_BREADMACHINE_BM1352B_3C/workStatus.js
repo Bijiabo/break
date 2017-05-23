@@ -5,7 +5,7 @@ define(['./js/manager/workStatusManager'], function (workStatus) {
     workStatus.add(
         'isAppoinment',
         function (data) {
-            return data.Reserve === '1'
+            return data.Reserve === '1';
         }
     );
     
@@ -19,14 +19,14 @@ define(['./js/manager/workStatusManager'], function (workStatus) {
     workStatus.add(
         'isCustom',
         function (data) {
-            return data.WorkMode === '31'
+            return data.WorkMode === '31';
         }
     );
     
     workStatus.add(
-        'canStartWork',
+        'isPause',
         function (data) {
-            return true
+            return ['1'].indexOf(data.WorkStatus) >= 0;
         }
     );
     

@@ -14,7 +14,12 @@ body {
   display: none;
 }
 
-/* line 16, main.scss */
+/* line 15, main.scss */
+.c_g {
+  color: #02ae9c !important;
+}
+
+/* line 19, main.scss */
 .toast-container {
   position: fixed;
   bottom: 70px;
@@ -27,7 +32,7 @@ body {
   width: 100%;
 }
 
-/* line 28, main.scss */
+/* line 31, main.scss */
 .toast {
   background-color: rgba(0, 0, 0, 0.7);
   padding: 8px;
@@ -36,7 +41,7 @@ body {
   text-align: center;
 }
 
-/* line 36, main.scss */
+/* line 39, main.scss */
 .clearfix:after {
   visibility: hidden;
   display: block;
@@ -46,7 +51,7 @@ body {
   height: 0;
 }
 
-/* line 45, main.scss */
+/* line 48, main.scss */
 .right-go {
   display: inline-block;
   right: 0;
@@ -56,24 +61,24 @@ body {
   color: #b2b2b2;
 }
 
-/* line 54, main.scss */
+/* line 57, main.scss */
 .clock {
   float: left;
   padding: 0 8px;
 }
 
-/* line 58, main.scss */
+/* line 61, main.scss */
 .clock i {
   font-size: 30px;
   color: #666;
 }
 
-/* line 62, main.scss */
+/* line 65, main.scss */
 .clock em {
   font-size: 15px;
 }
 
-/* line 65, main.scss */
+/* line 68, main.scss */
 .clock-left {
   border-radius: 10px;
   background: #ededed;
@@ -86,24 +91,24 @@ body {
   font-size: 10px;
 }
 
-/* line 77, main.scss */
+/* line 80, main.scss */
 .clock-hour, .clock-minute {
   display: inline-block;
 }
 
-/* line 81, main.scss */
+/* line 84, main.scss */
 .colon {
   display: inline-block;
   vertical-align: top;
 }
 
-/* line 84, main.scss */
+/* line 87, main.scss */
 .colon i {
   margin-top: -2px;
   display: block;
 }
 
-/* line 88, main.scss */
+/* line 91, main.scss */
 .work-time-value {
   text-align: center;
   padding: 0 8px;
@@ -111,7 +116,7 @@ body {
   font-size: 40px;
 }
 
-/* line 95, main.scss */
+/* line 98, main.scss */
 .status {
   padding-left: 15px;
   padding-top: 10px;
@@ -119,17 +124,17 @@ body {
   background: #fff;
 }
 
-/* line 101, main.scss */
+/* line 104, main.scss */
 .clock-hour, .clock-minute {
   display: inline-block;
 }
 
-/* line 104, main.scss */
+/* line 107, main.scss */
 .panel-head .ui-mode-wrap {
   margin-top: 15px;
 }
 
-/* line 107, main.scss */
+/* line 110, main.scss */
 .status-value {
   float: left;
   font-size: 14px;
@@ -137,12 +142,12 @@ body {
   /*border-left:1px solid #999;*/
 }
 
-/* line 113, main.scss */
+/* line 116, main.scss */
 .status-value-step {
   /*border-left:1px solid #999;*/
 }
 
-/* line 116, main.scss */
+/* line 119, main.scss */
 .top-temp {
   float: left;
   font-size: 14px;
@@ -150,7 +155,7 @@ body {
   /*border-right: 1px solid #999*/
 }
 
-/* line 122, main.scss */
+/* line 125, main.scss */
 .bottom-temp {
   float: left;
   font-size: 14px;
@@ -158,18 +163,18 @@ body {
   border-left: 1px solid #999;
 }
 
-/* line 128, main.scss */
+/* line 131, main.scss */
 .status-down {
   /* margin-bottom:15px;*/
 }
 
-/* line 133, main.scss */
+/* line 136, main.scss */
 .margin-top-26 {
   margin-top: 26px;
 }
 
 /* product-mask */
-/* line 138, main.scss */
+/* line 141, main.scss */
 .product-mask {
   background: #f2f2f2;
   background: -webkit-gradient(linear, 0 0, 0 bottom, from(rgba(255, 255, 255, 0)), to(rgba(237, 237, 237, 0.3)));
@@ -180,7 +185,7 @@ body {
   height: 160px;
 }
 
-/* line 147, main.scss */
+/* line 150, main.scss */
 .product-img {
   height: 160px;
   background-repeat: no-repeat;
@@ -191,24 +196,24 @@ body {
   overflow: hidden;
 }
 
-/* line 156, main.scss */
+/* line 159, main.scss */
 .product-img img {
   width: 59%;
   height: auto;
   margin-top: -6%;
 }
 
-/* line 162, main.scss */
+/* line 165, main.scss */
 .product-img img.full {
   width: 100%;
 }
 
-/* line 166, main.scss */
+/* line 169, main.scss */
 .ui-offNet {
   position: fixed;
 }
 
-/* line 170, main.scss */
+/* line 173, main.scss */
 .separator-view {
   background-color: #eeeeee;
   width: 100%;
@@ -217,13 +222,13 @@ body {
 }
 
 /* start view */
-/* line 178, main.scss */
+/* line 181, main.scss */
 .start-view {
   background-color: #ffffff;
   box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1);
 }
 
-/* line 182, main.scss */
+/* line 185, main.scss */
 .bottom-button-group {
   position: fixed;
   bottom: 0;
@@ -248,26 +253,26 @@ body {
   box-align: stretch;
 }
 
-/* line 210, main.scss */
+/* line 213, main.scss */
 .bottom-button-group > div {
   flex-grow: 1;
   -webkit-box-flex: 1;
   margin: 8px;
 }
 
-/* line 216, main.scss */
+/* line 219, main.scss */
 .bottom-button-group > div.major-button {
   flex-grow: 2;
   -webkit-box-flex: 2;
 }
 
-/* line 220, main.scss */
+/* line 223, main.scss */
 .bottom-button-group > div.minor-button {
   flex-grow: 1;
   -webkit-box-flex: 1;
 }
 
-/* line 225, main.scss */
+/* line 228, main.scss */
 .start-view-appointment-view {
   position: fixed;
   top: 0;
@@ -277,7 +282,7 @@ body {
   z-index: 20;
 }
 
-/* line 233, main.scss */
+/* line 236, main.scss */
 .start-view-appointment-view .shadow {
   position: absolute;
   top: 0;
@@ -288,7 +293,7 @@ body {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-/* line 243, main.scss */
+/* line 246, main.scss */
 .start-view-appointment-view .appointment-view-content {
   position: absolute;
   bottom: 0;
@@ -302,7 +307,7 @@ body {
 }
 
 /* count-down-view */
-/* line 256, main.scss */
+/* line 259, main.scss */
 .count-down-view {
   position: relative;
   display: -webkit-flex;
@@ -326,17 +331,17 @@ body {
   background-color: #f07947;
 }
 
-/* line 282, main.scss */
+/* line 285, main.scss */
 .count-down-view.working {
   background-color: #f07947;
 }
 
-/* line 285, main.scss */
+/* line 288, main.scss */
 .count-down-view.pause {
   background-color: #02ae9c;
 }
 
-/* line 288, main.scss */
+/* line 291, main.scss */
 .count-down-view .circle-view {
   display: -webkit-flex;
   display: flex;
@@ -358,37 +363,37 @@ body {
   -webkit-box-align: center;
 }
 
-/* line 312, main.scss */
+/* line 315, main.scss */
 .count-down-view .circle-view {
   background: url(http://gtms03.alicdn.com/tps/i3/TB1za71KFXXXXXgXXXXXe_SIVXX-570-570.gif) top no-repeat;
   background-size: 270px;
 }
 
-/* line 317, main.scss */
+/* line 320, main.scss */
 .count-down-view.working .circle-view {
   background: url(http://gtms03.alicdn.com/tps/i3/TB1za71KFXXXXXgXXXXXe_SIVXX-570-570.gif) top no-repeat;
   background-size: 270px;
 }
 
-/* line 322, main.scss */
+/* line 325, main.scss */
 .count-down-view.pause .circle-view {
   background: url(http://gtms03.alicdn.com/tps/i3/TB1MS3JKFXXXXbUaXXXb2YSIVXX-570-570.png) top no-repeat;
   background-size: 270px;
 }
 
-/* line 327, main.scss */
+/* line 330, main.scss */
 .count-down-view .circle-view .content-main {
   font-size: 2em;
   margin: 10px 0;
   font-family: "Microsoft YaHei";
 }
 
-/* line 335, main.scss */
+/* line 338, main.scss */
 .count-down-view .circle-view .content-main .iconfont {
   font-size: 2em;
 }
 
-/* line 339, main.scss */
+/* line 342, main.scss */
 .count-down-view .step-count {
   position: absolute;
   right: 10px;
@@ -400,51 +405,51 @@ body {
   color: #fff;
 }
 
-/* line 350, main.scss */
+/* line 353, main.scss */
 .count-down-view .step-count .current-step {
   position: absolute;
   left: 12px;
   top: 10px;
 }
 
-/* line 356, main.scss */
+/* line 359, main.scss */
 .count-down-view .step-count .all-step {
   position: absolute;
   right: 12px;
   bottom: 10px;
 }
 
-/* line 362, main.scss */
+/* line 365, main.scss */
 .count-down-view .content-main-explain {
   font-size: 1.3em;
 }
 
-/* line 365, main.scss */
+/* line 368, main.scss */
 .count-down-view .content-main-explain .iconfont {
   font-size: 1.3em;
   margin-top: 5px;
 }
 
-/* line 370, main.scss */
+/* line 373, main.scss */
 .count-down-view .content-state {
   font-size: 1.2em;
 }
 
-/* line 374, main.scss */
+/* line 377, main.scss */
 .count-down-view .circle-view .content-main .unit {
   font-size: 0.4em;
   padding: 0 5px;
 }
 
 /* step-view */
-/* line 380, main.scss */
+/* line 383, main.scss */
 .step-view {
   background-color: #ffffff;
   width: 100%;
   /*overflow-x: hidden;*/
 }
 
-/* line 386, main.scss */
+/* line 389, main.scss */
 .step-list-item {
   position: relative;
   padding: 16px 16px 16px 50px;
@@ -452,7 +457,7 @@ body {
   /*border-bottom: 1px solid #ececec;*/
 }
 
-/* line 393, main.scss */
+/* line 396, main.scss */
 .step-list-item:after {
   content: "";
   position: absolute;
@@ -463,7 +468,7 @@ body {
   background-color: #ececec;
 }
 
-/* line 403, main.scss */
+/* line 406, main.scss */
 .step-list-item:before {
   content: "";
   position: absolute;
@@ -475,40 +480,45 @@ body {
   background-color: #E4E4E4;
 }
 
-/* line 414, main.scss */
+/* line 417, main.scss */
 .step-list-item:last-child:before {
   height: 0;
 }
 
-/* line 418, main.scss */
+/* line 421, main.scss */
 .step-list-item.description {
   background-color: #fffcd3;
   color: #f07947;
 }
 
-/* line 423, main.scss */
+/* line 426, main.scss */
 .step-list-item.description:before {
   height: 0;
 }
 
-/* line 427, main.scss */
+/* line 430, main.scss */
 .step-list-item.description .step-list-item-icon {
   top: 16px;
   margin-top: 0;
   background: transparent;
 }
 
-/* line 433, main.scss */
+/* line 436, main.scss */
 .step-list-item.description .step-list-item-icon .iconfont {
   color: #f07947;
 }
 
-/* line 437, main.scss */
+/* line 440, main.scss */
 .step-list-item.done:before {
   background-color: #f07947;
 }
 
-/* line 441, main.scss */
+/* line 444, main.scss */
+.step-list-item.done.change:before {
+  background-color: #02ae9c;
+}
+
+/* line 448, main.scss */
 .step-list-item .step-list-item-icon {
   position: absolute;
   top: 50%;
@@ -520,7 +530,7 @@ body {
   /*border-radius: 50%;*/
 }
 
-/* line 452, main.scss */
+/* line 459, main.scss */
 .step-list-item-icon .iconfont {
   line-height: 20px;
   text-align: center;
@@ -528,27 +538,27 @@ body {
   font-size: 17px;
 }
 
-/* line 458, main.scss */
+/* line 465, main.scss */
 .step-list-item span {
   color: #A0A0A0;
 }
 
-/* line 461, main.scss */
+/* line 468, main.scss */
 .done span, .active span {
   color: #000;
 }
 
-/* line 465, main.scss */
+/* line 472, main.scss */
 .step-list-item.active .step-list-item-icon .iconfont, .step-list-item.done .step-list-item-icon .iconfont {
   color: #f07947;
 }
 
-/* line 469, main.scss */
+/* line 476, main.scss */
 .step-list-item.active {
   color: RGBA(240, 121, 71, 1);
 }
 
-/* line 473, main.scss */
+/* line 480, main.scss */
 .step-list-item-info {
   position: relative;
   top: 1px;
@@ -557,7 +567,7 @@ body {
   color: #A0A0A0;
 }
 
-/* line 482, main.scss */
+/* line 489, main.scss */
 .step-list-item-info.active:before {
   content: attr(content);
   position: absolute;
@@ -573,7 +583,7 @@ body {
   font-size: 12px;
 }
 
-/* line 498, main.scss */
+/* line 505, main.scss */
 .step-list-item-info.active:after {
   content: "";
   position: absolute;
@@ -589,7 +599,7 @@ body {
 }
 
 /* explain-view */
-/* line 517, main.scss */
+/* line 524, main.scss */
 .explain-view .title {
   background-color: #f7f7f7;
   padding: 10px;
@@ -598,7 +608,7 @@ body {
   line-height: 14px;
 }
 
-/* line 525, main.scss */
+/* line 532, main.scss */
 .explain-view .content {
   background: #ffffff;
   padding: 10px;
@@ -606,18 +616,18 @@ body {
   color: #757575;
 }
 
-/* line 532, main.scss */
+/* line 539, main.scss */
 .explain-view .content p {
   margin-bottom: 10px;
 }
 
-/* line 536, main.scss */
+/* line 543, main.scss */
 .explain-view .content p:last-child {
   margin-bottom: 0;
 }
 
 /* time-picker */
-/* line 541, main.scss */
+/* line 548, main.scss */
 .time-picker-component-container .title {
   background-color: #f7f7f7;
   padding: 10px;
@@ -626,7 +636,7 @@ body {
 }
 
 /* state-mask-view */
-/* line 549, main.scss */
+/* line 556, main.scss */
 .state-mask {
   background: #fff;
   padding: 40px 0;
@@ -634,7 +644,7 @@ body {
   box-sizing: border-box;
 }
 
-/* line 556, main.scss */
+/* line 563, main.scss */
 .state-mask .lock {
   margin: 0 auto;
   background-size: 100% 100% !important;
@@ -647,7 +657,7 @@ body {
 }
 
 /* work done */
-/* line 569, main.scss */
+/* line 576, main.scss */
 .work-done {
   background-repeat: no-repeat;
   background-position: top;
@@ -656,7 +666,7 @@ body {
   background-image: url("https://img.alicdn.com/imgextra/i3/176994656/TB2s9xbnmFjpuFjSspbXXXagVXa_!!176994656.jpg");
 }
 
-/* line 581, main.scss */
+/* line 588, main.scss */
 .work-done-keep-warm {
   width: 100%;
   height: 400px;
@@ -667,7 +677,7 @@ body {
   background-image: url("https://img.alicdn.com/imgextra/i4/151197236/TB26H0hdr0kpuFjy0FjXXcBbVXa_!!151197236.png");
 }
 
-/* line 590, main.scss */
+/* line 597, main.scss */
 .work-done-disinfection {
   width: 100%;
   height: 400px;
@@ -679,7 +689,7 @@ body {
 }
 
 /* navigation-bar */
-/* line 601, main.scss */
+/* line 608, main.scss */
 .navigation-bar {
   position: fixed;
   top: 48px;
@@ -694,35 +704,35 @@ body {
   color: rgba(255, 255, 255, 0.7);
 }
 
-/* line 618, main.scss */
+/* line 625, main.scss */
 .navigation-bar > div {
   /*height: 40px;*/
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-/* line 623, main.scss */
+/* line 630, main.scss */
 .navigation-bar .left {
   flex-basis: 50px;
 }
 
-/* line 627, main.scss */
+/* line 634, main.scss */
 .navigation-bar .right {
   flex-basis: 50px;
 }
 
-/* line 631, main.scss */
+/* line 638, main.scss */
 .navigation-bar .title {
   /*flex-grow: 1;*/
   text-align: center;
 }
 
 /* switch cell */
-/* line 637, main.scss */
+/* line 644, main.scss */
 .switch_cell_container {
   position: relative;
 }
 
-/* line 641, main.scss */
+/* line 648, main.scss */
 .swtich_cell_interact_area {
   position: absolute;
   right: 0;
@@ -734,7 +744,7 @@ body {
 }
 
 /* grid */
-/* line 652, main.scss */
+/* line 659, main.scss */
 .ui-item-label {
   background: #f7f7f7;
   padding: 10px;
@@ -743,7 +753,7 @@ body {
   line-height: 14px;
 }
 
-/* line 660, main.scss */
+/* line 667, main.scss */
 .ui-grid .ui-item-label span {
   position: relative;
   top: -2px;
@@ -751,7 +761,7 @@ body {
 }
 
 /* tab */
-/* line 667, main.scss */
+/* line 674, main.scss */
 .ui-tabs-title {
   height: 33px;
   margin: 8px;
@@ -766,13 +776,13 @@ body {
   vertical-align: middle;
 }
 
-/* line 682, main.scss */
+/* line 689, main.scss */
 .ui-tabs-title .ui-tab-title:first-child {
   border-left-width: 1px;
   border-radius: 5px 0 0 5px;
 }
 
-/* line 687, main.scss */
+/* line 694, main.scss */
 .ui-tabs-title .ui-tab-title {
   text-decoration: none;
   -moz-box-flex: 1;
@@ -789,14 +799,14 @@ body {
   -webkit-transition: background .2s;
 }
 
-/* line 703, main.scss */
+/* line 710, main.scss */
 .ui-tabs-title .ui-tab-title.active {
   color: #fff;
   background: #00c7b2;
 }
 
 /* custom serial pip slider*/
-/* line 709, main.scss */
+/* line 716, main.scss */
 .serialMode .serial-pip-slider-item .ui-slider-handle:before {
   content: attr(value);
   position: absolute;
@@ -811,38 +821,38 @@ body {
   text-align: center;
 }
 
-/* line 722, main.scss */
+/* line 729, main.scss */
 .serialMode .serial-pip-slider-item .ui-slider-Desc.currentXLabel {
   color: #666;
 }
 
-/* line 726, main.scss */
+/* line 733, main.scss */
 .serialMode .serial-pip-slider-item .ui-slider-Desc {
   display: none;
 }
 
-/* line 730, main.scss */
+/* line 737, main.scss */
 .serialMode .serial-pip-slider-item .ui-slider-Desc:first-child,
 .serialMode .serial-pip-slider-item .ui-slider-Desc:last-child {
   display: inline-block;
 }
 
-/* line 736, main.scss */
+/* line 743, main.scss */
 .serialMode .serial-pip-slider-item.ui-slider-item .ui-slider-cont {
   margin-bottom: 14px;
 }
 
-/* line 739, main.scss */
+/* line 746, main.scss */
 .no-slider-label .ui-slider-label {
   display: none;
 }
 
-/* line 742, main.scss */
+/* line 749, main.scss */
 .no-slider-label .ui-slider-item {
   padding-top: 32px;
 }
 
-/* line 745, main.scss */
+/* line 752, main.scss */
 .panel-title-cell {
   background-color: #f7f7f7;
   padding: 10px;
@@ -851,26 +861,26 @@ body {
 }
 
 /* custom start-view */
-/* line 753, main.scss */
+/* line 760, main.scss */
 .start-view-main-button {
   border-color: #FF5681;
   background-color: #FF5681;
 }
 
 /* custom tab component */
-/* line 759, main.scss */
+/* line 766, main.scss */
 .ui-tabs-title .ui-tab-title {
   border: 1px solid #FF5681;
   color: #FF5681;
 }
 
-/* line 764, main.scss */
+/* line 771, main.scss */
 .ui-tabs-title .ui-tab-title.active {
   background: #FF5681;
 }
 
 /* loading view */
-/* line 769, main.scss */
+/* line 776, main.scss */
 .loading-view {
   box-sizing: border-box;
   position: fixed;
@@ -886,7 +896,7 @@ body {
   z-index: 999;
 }
 
-/* line 783, main.scss */
+/* line 790, main.scss */
 .loading-view:before {
   content: "";
   position: fixed;
@@ -898,7 +908,7 @@ body {
   background-color: white;
 }
 
-/* line 793, main.scss */
+/* line 800, main.scss */
 .loading-view .loading-icon {
   position: absolute;
   left: 0;
@@ -911,13 +921,13 @@ body {
   overflow: hidden;
 }
 
-/* line 804, main.scss */
+/* line 811, main.scss */
 .loading-view .loading-icon .iconfont {
   font-size: 80px;
   line-height: 120px;
 }
 
-/* line 808, main.scss */
+/* line 815, main.scss */
 .loading-view .loading-text {
   position: absolute;
   top: 140px;
@@ -929,13 +939,13 @@ body {
 }
 
 /* fix cell separator line  */
-/* line 820, main.scss */
+/* line 827, main.scss */
 .ui-item-list ul:after, .ui-item-list ul:before {
   height: 0;
 }
 
 /* prompt cell component */
-/* line 825, main.scss */
+/* line 832, main.scss */
 .prompt-cell .content {
   background-color: #EEAC8C;
   padding: 10px;
@@ -944,57 +954,85 @@ body {
   text-align: center;
 }
 
-/* line 833, main.scss */
+/* line 840, main.scss */
 .prompt-cell .content p {
   margin-bottom: 10px;
 }
 
-/* line 837, main.scss */
+/* line 844, main.scss */
 .prompt-cell .content p:last-child {
   margin-bottom: 0;
 }
 
 /* startView button */
-/* line 842, main.scss */
+/* line 849, main.scss */
 .ui-important-light-orange-btn {
   text-align: center;
   width: 60px;
   height: 40px;
   line-height: 40px;
-  color: #fff;
   border: none;
   background-color: #fdf0eb;
   color: #f07947;
 }
-/* line 844, main.scss */
+/* line 851, main.scss */
 .ui-important-light-orange-btn:active {
   background-color: #fdf0eb;
   color: #f07947;
 }
 
-/* line 857, main.scss */
+/* line 863, main.scss */
 .ui-important-dark-orange-btn {
   text-align: center;
   height: 40px;
   line-height: 40px;
-  color: #fff;
   border: none;
   background-color: #f07947;
   color: white;
 }
-/* line 859, main.scss */
+/* line 865, main.scss */
 .ui-important-dark-orange-btn:active {
   background-color: #f07947;
   color: white;
 }
 
-/* line 871, main.scss */
+/* line 877, main.scss */
+.ui-disable-major-btn {
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  border: none;
+  background-color: #efefef;
+  color: #9b9b9b;
+}
+/* line 878, main.scss */
+.ui-disable-major-btn:active {
+  background-color: #efefef;
+  color: #9b9b9b;
+}
+
+/* line 890, main.scss */
+.ui-disable-minor-btn {
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  border: none;
+  background-color: #dfdfdf;
+  color: #fff;
+}
+/* line 891, main.scss */
+.ui-disable-minor-btn:active {
+  background-color: #dfdfdf;
+  color: #fff;
+}
+
+/* line 903, main.scss */
 .startIcon {
   font-size: 0.9em;
 }
 
 /* stopView button */
-/* line 876, main.scss */
+/* line 908, main.scss */
 .ui-important-light-green-btn {
   text-align: center;
   width: 60px;
@@ -1005,13 +1043,13 @@ body {
   background-color: #eafffd;
   color: #00c7b2;
 }
-/* line 878, main.scss */
+/* line 910, main.scss */
 .ui-important-light-green-btn:active {
   background-color: #eafffd;
   color: #00c7b2;
 }
 
-/* line 891, main.scss */
+/* line 923, main.scss */
 .ui-important-dark-green-btn {
   text-align: center;
   height: 40px;
@@ -1021,14 +1059,14 @@ body {
   background-color: #00c7b2;
   color: white;
 }
-/* line 893, main.scss */
+/* line 925, main.scss */
 .ui-important-dark-green-btn:active {
   background-color: #00c7b2;
   color: white;
 }
 
 /* timePicker component */
-/* line 907, main.scss */
+/* line 939, main.scss */
 .expect-time {
   text-align: center;
   height: 40px;
@@ -1036,14 +1074,14 @@ body {
   font-size: 1.1em;
 }
 
-/* line 913, main.scss */
+/* line 945, main.scss */
 .expect-time p {
   display: inline;
   color: #ff8650;
   padding: 0 3px;
 }
 
-/* line 918, main.scss */
+/* line 950, main.scss */
 .custom-group {
   width: 100%;
   display: -webkit-flex;
@@ -1064,14 +1102,14 @@ body {
   box-align: stretch;
 }
 
-/* line 942, main.scss */
+/* line 974, main.scss */
 .custom_list_child {
   border-bottom: 1px solid #eaeaea;
   padding: 10px 0 10px 0;
   width: 100%;
   background-color: #fff;
 }
-/* line 947, main.scss */
+/* line 979, main.scss */
 .custom_list_child .left_icon {
   float: left;
   color: #00c7b2;
@@ -1079,7 +1117,7 @@ body {
   padding-left: 20px;
   line-height: 32px;
 }
-/* line 954, main.scss */
+/* line 986, main.scss */
 .custom_list_child .custom_step_title {
   float: left;
   line-height: 32px;
@@ -1087,7 +1125,7 @@ body {
   font-size: 17px;
   padding-left: 15px;
 }
-/* line 961, main.scss */
+/* line 993, main.scss */
 .custom_list_child .custom_step_time {
   float: right;
   line-height: 32px;
@@ -1095,7 +1133,7 @@ body {
   padding-right: 15px;
   color: #00c7b2;
 }
-/* line 968, main.scss */
+/* line 1000, main.scss */
 .custom_list_child .right_icon {
   float: right;
   color: #b2b2b2;

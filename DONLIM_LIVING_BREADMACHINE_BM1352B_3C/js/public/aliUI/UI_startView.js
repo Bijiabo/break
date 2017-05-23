@@ -209,6 +209,8 @@ define(['./../vue', './public', './UI_timePicker', './UI_confirmView'], function
             },
             checkIfNeedShowWorkingTip: function () {
                 var working = this.itemData.working(data);
+                var majorBtn = $('.major-button');
+                var minorBtn = $('.minor-button');
                 if (working) {
                     DA.toast({
                         cls:"toast-container",
@@ -216,6 +218,16 @@ define(['./../vue', './public', './UI_timePicker', './UI_confirmView'], function
                         duration:1000,
                         hold:false
                     });
+
+                    majorBtn.removeClass('ui-important-orange-btn');
+                    majorBtn.addClass('ui-disable-major-btn');
+                    minorBtn.removeClass('ui-important-light-orange-btn');
+                    minorBtn.addClass('ui-disable-minor-btn');
+                }else{
+                    majorBtn.addClass('ui-important-orange-btn');
+                    majorBtn.removeClass('ui-disable-major-btn');
+                    minorBtn.addClass('ui-important-light-orange-btn');
+                    minorBtn.removeClass('ui-disable-minor-btn');
                 }
 
                 return working;

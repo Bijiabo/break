@@ -12,6 +12,9 @@ body {
 .hide {
     display: none;
 }
+.c_g{
+    color: #02ae9c !important;
+}
 
 .toast-container {
     position: fixed;
@@ -438,6 +441,10 @@ body {
     background-color: #f07947;
 }
 
+.step-list-item.done.change:before {
+    background-color: #02ae9c;
+}
+
 .step-list-item .step-list-item-icon {
     position: absolute;
     top: 50%;
@@ -849,7 +856,6 @@ body {
     width: 60px;
     height: 40px;
     line-height: 40px;
-    color: #fff;
     border: none;
     background-color: rgba(253, 240, 235, 1);
     color: rgba(240, 121, 71, 1);    
@@ -863,11 +869,37 @@ body {
     text-align: center;
     height: 40px;
     line-height: 40px;
-    color: #fff;
     border: none;
     background-color: rgba(240, 121, 71, 1);
     color: rgba(255, 255, 255, 1);   
 }
+
+.ui-disable-major-btn{
+    &:active{
+      background-color: #efefef;
+      color: #9b9b9b;
+    } 
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+    background-color: #efefef;
+    color: #9b9b9b;  
+}
+
+.ui-disable-minor-btn{
+    &:active{
+      background-color: #dfdfdf;
+      color: #fff;
+    } 
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+    background-color: #dfdfdf;
+    color: #fff;  
+}
+
 .startIcon{
   font-size: 0.9em;
 }

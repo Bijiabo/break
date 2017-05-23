@@ -2,7 +2,7 @@
  * Created by huchunbo on 2016/9/30.
  */
 
-define(['./../vue', './public', './UI_timePicker', './UI_confirmView'], function(Vue, _public){
+define(['./../vue', './public', './UI_timePicker', './UI_confirmView'], function(Vue, _public) {
 
     var ComponentName = _public.ComponentName;
     var publicComputed = _public.publicComputed;
@@ -45,12 +45,10 @@ define(['./../vue', './public', './UI_timePicker', './UI_confirmView'], function
                     text: '是否结束制作？',
                     confirm: {
                         text: '继续制作',
-                        data: [
-                            {
-                                key: 'KG_Cancel',
-                                value: '1'
-                            }
-                        ]
+                        data: [{
+                            key: 'KG_Cancel',
+                            value: '1'
+                        }]
                     },
                     cancel: {
                         text: '结束制作'
@@ -63,7 +61,7 @@ define(['./../vue', './public', './UI_timePicker', './UI_confirmView'], function
         },
         props: ['index', 'itemData', 'currentValue', 'data'],
         methods: {
-            tapMajorButton: function () {
+            tapMajorButton: function() {
                 // 点击主按钮
                 console.log('tapMajorButton');
 
@@ -80,21 +78,21 @@ define(['./../vue', './public', './UI_timePicker', './UI_confirmView'], function
                 }
 
                 // 获取要下发的命令
-                var isCommandFunction = Object.prototype.toString.call( this.majorButton.command ) === '[object Function]';
+                var isCommandFunction = Object.prototype.toString.call(this.majorButton.command) === '[object Function]';
                 var command = {};
                 var commandConfig = isCommandFunction ? this.majorButton.command(this.data) : this.majorButton.command;
                 if (commandConfig) {
-                    for(var i=0,len=commandConfig.length; i<len; i++) {
+                    for (var i = 0, len = commandConfig.length; i < len; i++) {
                         var currentItem = commandConfig[i];
                         command[currentItem.key] = currentItem.value;
                     }
                 }
                 _setDeviceStatus(false, command);
             },
-            tapMinorButton: function () {
+            tapMinorButton: function() {
                 // 点击次要按钮
                 console.log('tapMinorButton');
-    
+
                 if (this.minorButton.customTapFunction) {
                     if (!this.minorButton.customTapFunction(this.data, this)) {
                         return;
@@ -111,7 +109,7 @@ define(['./../vue', './public', './UI_timePicker', './UI_confirmView'], function
                 var command = {};
                 var commandConfig = this.minorButton.command;
                 if (commandConfig) {
-                    for(var i=0,len=commandConfig.length; i<len; i++) {
+                    for (var i = 0, len = commandConfig.length; i < len; i++) {
                         var currentItem = commandConfig[i];
                         command[currentItem.key] = currentItem.value;
                     }
@@ -120,6 +118,8 @@ define(['./../vue', './public', './UI_timePicker', './UI_confirmView'], function
             },
             updateConfig: function() {
                 var currentConfig = this.itemData.config(this.data);
+                var majorButton = $('.major-button');
+                var minorButton = $('.minor-button');
                 this.majorButton = undefined;
                 this.minorButton = undefined;
                 if (currentConfig.majorButton) {
@@ -131,16 +131,35 @@ define(['./../vue', './public', './UI_timePicker', './UI_confirmView'], function
                 if (currentConfig.minorButton) {
                     this.minorButton = currentConfig.minorButton;
                     if (currentConfig.minorButton.confirm) {
+                        console.log(currentConfig.minorButton.confirm)
                         this.confirm = currentConfig.minorButton.confirm;
                     }
                 }
 
                 // 更新按钮文字
-                var majorButtonTitleIsFunction = Object.prototype.toString.call( currentConfig.majorButton.title ) === '[object Function]';
-                if ( majorButtonTitleIsFunction ) {
+                var majorButtonTitleIsFunction = Object.prototype.toString.call(currentConfig.majorButton.title) === '[object Function]';
+                if (majorButtonTitleIsFunction) {
                     this.majorButtonText = currentConfig.majorButton.title(this.data);
                 } else {
-                    this.majorButtonText = currentConfig.majorButton.title ;
+                    this.majorButtonText = currentConfig.majorButton.title;
+                }
+
+                // 更新按钮UI
+                if (['1'].indexOf(this.data.WorkStatus) >= 0) {
+                    majorButton.removeClass('ui-important-dark-green-btn');
+                    majorButton.addClass('ui-important-dark-orange-btn');
+                }else{
+                    majorButton.removeClass('ui-important-dark-orange-btn');
+                    majorButton.addClass('ui-important-dark-green-btn');                    
+                }
+
+
+                if (['1'].indexOf(this.data.WorkStatus) >= 0) {
+                    minorButton.removeClass('ui-important-light-green-btn');
+                    minorButton.addClass('ui-important-light-orange-btn');
+                }else{
+                    minorButton.removeClass('ui-important-light-orange-btn');
+                    minorButton.addClass('ui-important-light-green-btn');                    
                 }
 
             }
@@ -175,4 +194,3 @@ define(['./../vue', './public', './UI_timePicker', './UI_confirmView'], function
 
     return StopView;
 });
-

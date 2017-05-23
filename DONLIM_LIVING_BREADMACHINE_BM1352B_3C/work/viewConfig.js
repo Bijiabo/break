@@ -181,7 +181,7 @@ define([
             return {
                 majorButton: {
                     title: function(data) {
-                        if (['5'].indexOf(data.WorkStatus) >= 0) { // 暂停中
+                        if ( workStatusManager.isPause ) { // 暂停中
                             return '继续制作';
                         } else {
                             return '暂停制作'
@@ -189,7 +189,7 @@ define([
                     },
 
                     command: function(data) {
-                        if (['5'].indexOf(data.WorkStatus) >= 0) { // 暂停中
+                        if ( workStatusManager.isPause ) { // 暂停中
                             return [{
                                 key: 'KG_Start',
                                 value: '1'
@@ -207,9 +207,10 @@ define([
                             component.$set('data.needCheckOpenDoor', true);
                             return false;
                         }
+                        
                         return true;
 
-                    }
+                    },
                 },
                 minorButton: {
                     title: '取消',
@@ -231,7 +232,16 @@ define([
                         cancel: {
                             text: '结束制作'
                         }
-                    }
+                    },
+                    customTapFunction: function(data, component) {
+                        if (data.ErrorCode == '1') {
+                            component.$set('data.needCheckOpenDoor', true);
+                            return false;
+                        }
+                        
+                        return true;
+
+                    },
                 }
             }
         },

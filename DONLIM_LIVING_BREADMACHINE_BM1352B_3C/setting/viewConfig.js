@@ -42,7 +42,8 @@ define([
                 return true;
             },
             customTapFunction: function(data){
-                if(data.KG_Start == '1' || data.KG_Start == '0'){
+                if(data.KG_Start){
+                    $('.minor-button').addClass('disable');
 
                 }
             },
@@ -66,7 +67,7 @@ define([
                 key: ['Reserve'],
                 minorButtonClass: 'ui-important-light-orange-btn',
                 customTapFunction: function() {
-                    // do sth
+                    
                 }
             };
             startButton.appointment = {
@@ -80,7 +81,12 @@ define([
                 max: 570,
                 step: 1,
                 customTapFunction: function(data) {
-                    // do sth
+                    var preSet = {
+                        'TM_Finish': {value: data.TM_Finish},
+                        // 'WF': {value: data.WF},
+                        'Reserve': {value: data.Reserve}
+                    };
+                    DA.setDeviceStatus(DA.uuid, preSet);
                 },
                 cancel: {}
             }
