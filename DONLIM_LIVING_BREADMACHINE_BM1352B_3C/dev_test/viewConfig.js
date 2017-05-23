@@ -38,10 +38,10 @@ define([
     // 时间选择器
     var timePicker = {
         title: '制作时间',
-        defaultValue: '1',
+        defaultValue: 'now',
         key: 'WorkTime',
         type: 'timePicker',
-        system12: true,
+        system24: true,
         stringValue: true
     };
     viewData.push(timePicker);

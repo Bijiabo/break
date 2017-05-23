@@ -43,6 +43,7 @@ define(['./../vue', './public'], function(Vue, _public){
 
     var getArrayForTimeUnit = function (timeUnit, step, min, max) {
         if (min === undefined) {min = 0;}
+        // if (max === undefined) {max = 59;}
         if (step === undefined) {step = 1;}
         var result = [];
 
@@ -93,7 +94,13 @@ define(['./../vue', './public'], function(Vue, _public){
             if (this.autoInit) {
                 this.init();
                 // 设定默认值
-                this.setValue(Number(this.itemData.defaultValue));
+                if (this.itemData.system24 && this.itemData.defaultValue === 'now') {
+                    var currentTime = new Date();
+                    var targetTimeValue = currentTime.getHours() * 60 + currentTime.getMinutes();
+                    this.setValue(targetTimeValue);
+                } else {
+                    this.setValue(Number(this.itemData.defaultValue));
+                }
             }
             // this.$set('data._'+this.itemData.key, this.itemData.stringValue ? this.itemData.min.toString() : this.itemData.min);
             this.$set('data._'+this.itemData.key, this.itemData.stringValue ? this.itemData.defaultValue.toString() : Number(this.itemData.defaultValue));
@@ -113,6 +120,11 @@ define(['./../vue', './public'], function(Vue, _public){
                 return config;
             },
             init: function() {
+                if (this.itemData.system24) {
+                    this.itemData.min = 0;
+                    this.itemData.max = 24*60;
+                }
+                
                 this.setupDateConfiguration();
 
                 var self = this;
@@ -154,7 +166,9 @@ define(['./../vue', './public'], function(Vue, _public){
 
                 } else if (this.itemData.system24 === true) {
                     this.dateTimeConfigration[0].resource = getArrayForTimeUnit(timeUnits.hour);
+                    this.dateTimeConfigration[0].unit = '点';
                     this.dateTimeConfigration[1].resource = getArrayForTimeUnit(timeUnits.minute);
+                    this.dateTimeConfigration[1].unit = '分';
                 } else { // 自定义
                     var maxValue = this.itemData.max;
                     var hourIndex = 0,
@@ -412,6 +426,11 @@ define(['./../vue', './public'], function(Vue, _public){
                 if (this.itemData.system12) {
                     // 12 小时值
                     // TODO: 完善 12 小时制默认值设定
+                } else if (this.itemData.system24) {
+                    var targetData = {};
+                    targetData.hour = Math.floor(value / 60);
+                    targetData.minute = value % 60;
+                    this.component.setData(targetData);
                 } else {
                     // 其他
                     switch (this.itemData.unit) {
