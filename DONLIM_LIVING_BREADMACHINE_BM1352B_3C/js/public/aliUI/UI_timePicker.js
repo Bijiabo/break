@@ -98,6 +98,8 @@ define(['./../vue', './public'], function(Vue, _public){
                     var currentTime = new Date();
                     var targetTimeValue = currentTime.getHours() * 60 + currentTime.getMinutes();
                     this.setValue(targetTimeValue);
+                } else if (this.itemData.system24 && this.itemData.start && this.itemData.end) {
+                    // todo: 处理默认值问题
                 } else {
                     this.setValue(Number(this.itemData.defaultValue));
                 }
@@ -165,10 +167,36 @@ define(['./../vue', './public'], function(Vue, _public){
 
 
                 } else if (this.itemData.system24 === true) {
-                    this.dateTimeConfigration[0].resource = getArrayForTimeUnit(timeUnits.hour);
-                    this.dateTimeConfigration[0].unit = '点';
-                    this.dateTimeConfigration[1].resource = getArrayForTimeUnit(timeUnits.minute);
-                    this.dateTimeConfigration[1].unit = '分';
+                    if (this.itemData.start && this.itemData.end) {
+                        // 生成小时配置
+                        var startTime = this.itemData.start(this.data),
+                            endTime = this.itemData.end(this.data);
+                        var timeLength = (endTime - startTime) / (3600 * 1000);
+                        var startTimeCache = startTime;
+                        var hoursArray = [];
+                        for (var i=0; i<=timeLength; i++) {
+                            hoursArray.push(startTimeCache.getHours().toString());
+                            startTimeCache = new Date(startTimeCache.getTime() + 3600 * 1000);
+                        }
+                        this.dateTimeConfigration[0].resource = hoursArray;
+                        this.dateTimeConfigration[0].unit = '点';
+                        // 生成分钟配置
+                        timeLength = 60 - startTime.getMinutes();
+                        startTimeCache = startTime;
+                        var minutesArray = [];
+                        for (var i=0; i<timeLength; i++) {
+                            minutesArray.push(startTimeCache.getMinutes().toString());
+                            startTimeCache = new Date(startTimeCache.getTime() + 60 * 1000);
+                        }
+                        this.dateTimeConfigration[1].resource = minutesArray;
+                        this.dateTimeConfigration[1].unit = '分';
+                    } else {
+                        this.dateTimeConfigration[0].resource = getArrayForTimeUnit(timeUnits.hour);
+                        this.dateTimeConfigration[0].unit = '点';
+                        this.dateTimeConfigration[1].resource = getArrayForTimeUnit(timeUnits.minute);
+                        this.dateTimeConfigration[1].unit = '分';
+                    }
+                    
                 } else { // 自定义
                     var maxValue = this.itemData.max;
                     var hourIndex = 0,
@@ -258,6 +286,11 @@ define(['./../vue', './public'], function(Vue, _public){
                         _time += 12*60;
                     }
                 }
+                
+                // 处理 24 小时制问题
+                if (this.itemData.system24) {
+                    _time = Number(componentData.hour) * 60 + Number(componentData.minute);
+                }
 
                 if (this.itemData.fromNow) {
                     var _d = new Date();
@@ -279,6 +312,48 @@ define(['./../vue', './public'], function(Vue, _public){
                 this.getCurrentValue();
 
                 if (this.itemData.system12) {return;}
+                
+                if (this.itemData.system24) {
+                    var componentData = this.component.getTime();
+                    var startTime = this.itemData.start(this.data),
+                        endTime = this.itemData.end(this.data);
+                    if ( Number(componentData.hour) === Number(startTime.getHours()) ) {
+                        // 第一个小时时间
+    
+                        // 生成分钟配置
+                        var timeLength = 60 - startTime.getMinutes();
+                        var startTimeCache = startTime;
+                        var minutesArray = [];
+                        for (var i = 0; i < timeLength; i++) {
+                            minutesArray.push(startTimeCache.getMinutes().toString());
+                            startTimeCache = new Date(startTimeCache.getTime() + 60 * 1000);
+                        }
+                        this.dateTimeConfigration[1].resource = minutesArray;
+                        this.dateTimeConfigration[1].unit = '分';
+                        console.log(minutesArray);
+                        this.component.minute.updateData(minutesArray);
+                        this.component.setData({minute: componentData.minute});
+                    } else if ( Number(componentData.hour) === Number(endTime.getHours()) ) {
+                        // 最后一个小时时间
+                        
+                        // 生成分钟配置
+                        var timeLength = endTime.getMinutes();
+                        var minutesArray = [];
+                        for (var i = 0; i < timeLength; i++) {
+                            minutesArray.push(i.toString());
+                        }
+                        this.dateTimeConfigration[1].resource = minutesArray;
+                        this.dateTimeConfigration[1].unit = '分';
+                        console.log(minutesArray);
+                        this.component.minute.updateData(minutesArray);
+                        this.component.setData({minute: componentData.minute});
+                    } else {
+                        console.log('else...', endTime.getHours());
+                        this.component.minute.updateData( getArrayForTimeUnit(timeUnits.minute, 1, 0, 59) );
+                        this.component.setData({minute: componentData.minute});
+                    }
+                    return;
+                }
 
                 var hasHour = this.dateTimeConfigration[0].resource.length >0;
                 var hasMinute = this.dateTimeConfigration[1].resource.length >0;

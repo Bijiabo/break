@@ -36,14 +36,35 @@ define([
     // viewData.push(actionSheetView);
     
     // 时间选择器
+    // var timePicker = {
+    //     // title: '制作时间',
+    //     defaultValue: 'now',
+    //     key: 'WorkTime',
+    //     type: 'timePicker',
+    //     system24: true,
+    //     stringValue: true
+    // };
+    // viewData.push(timePicker);
+    
     var timePicker = {
-        title: '制作时间',
-        defaultValue: 'now',
-        key: 'WorkTime',
         type: 'timePicker',
+        key: 'WorkTime',
+        title: '制作时间',
+        defaultValue: function (data) {
+            return new Date();
+        },
+        start: function (data) {
+            return new Date();
+        },
+        end: function (data) {
+            var currentTime = (new Date()).getTime();
+            var targetTime = currentTime + 3600 * 1000 * 12;
+            return new Date(targetTime);
+        },
         system24: true,
         stringValue: true
     };
+    
     viewData.push(timePicker);
     
     return viewData;
