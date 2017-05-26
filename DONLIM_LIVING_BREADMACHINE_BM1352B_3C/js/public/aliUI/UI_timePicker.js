@@ -100,6 +100,10 @@ define(['./../vue', './public'], function(Vue, _public){
                     this.setValue(targetTimeValue);
                 } else if (this.itemData.system24 && this.itemData.start && this.itemData.end) {
                     // todo: 处理默认值问题
+                    var targetTime = this.itemData.defaultValue(this.data);
+                    var targetTimeValue = targetTime.getHours() * 60 + targetTime.getMinutes();
+                    
+                    this.setValue( targetTimeValue  );
                 } else {
                     this.setValue(Number(this.itemData.defaultValue));
                 }

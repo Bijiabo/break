@@ -51,7 +51,9 @@ define([
         key: 'WorkTime',
         title: '制作时间',
         defaultValue: function (data) {
-            return new Date();
+            var currentTime = (new Date()).getTime();
+            var targetTime = currentTime + 3600 * 1000 * 1;
+            return new Date(targetTime);
         },
         start: function (data) {
             return new Date();
